@@ -4,8 +4,6 @@
 
 # As a bonus, the program should raise an error if the triangle cannot exist.
 
-# Tests are provided, delete one `skip` at a time.
-
 # ## Hint
 
 # The sum of the lengths of any two sides of a triangle always exceeds the length of the third side, a principle known as the _triangle inequality_.
@@ -44,37 +42,30 @@ describe 'Triangle' do
   end
 
   it 'knows that isosceles triangles have first and last sides equal' do
-    skip
     Triangle.new(4, 3, 4).kind.should eq(:isosceles)
   end
 
   it 'knows that isosceles triangles have two first sides equal' do
-    skip
     Triangle.new(4, 4, 3).kind.should eq(:isosceles)
   end
 
   it 'knows that isosceles triangles have in fact exactly two sides equal' do
-    skip
     Triangle.new(10, 10, 2).kind.should eq(:isosceles)
   end
 
   it 'knows that scalene triangles have no equal sides' do
-    skip
     Triangle.new(3, 4, 5).kind.should eq(:scalene)
   end
 
   it 'knows that scalene triangles have no equal sides at a larger scale too' do
-    skip
     Triangle.new(10, 11, 12).kind.should eq(:scalene)
   end
 
   it 'knows that scalene triangles have no equal sides in descending order either' do
-    skip
     Triangle.new(5, 4, 2).kind.should eq(:scalene)
   end
 
   it 'knows that very small triangles are legal' do
-    skip
     Triangle.new(0.4, 0.6, 0.3).kind.should eq(:scalene)
   end
 
