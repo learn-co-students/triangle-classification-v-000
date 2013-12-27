@@ -1,3 +1,8 @@
+---
+  tags: todo
+  languages: ruby
+---
+
 # Triangle
 
 Write code to make the tests in `triangle_spec.rb` pass.
