@@ -1,1 +1,3 @@
-# Write your code here.
+class Triangle
+  # write code here
+end
