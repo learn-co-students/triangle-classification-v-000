@@ -39,3 +39,4 @@ You will need to raise a custom error type in order to make the bonus tests pass
 * [Programming Ruby: The Pragmatic Programmer's Guide](http://phrogz.net/programmingruby/) - [Exceptions, Catch, and Throw](http://phrogz.net/programmingruby/tut_exceptions.html)
 * [A Blog About Code](http://ablogaboutcode.com/) - [Using Custom Error Messages for Cleaner Code](http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/)
 * [Basic Mathematics](http://www.basic-mathematics.com/) - [Types of Triangles](http://www.basic-mathematics.com/types-of-triangles.html)
+
