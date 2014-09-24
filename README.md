@@ -28,10 +28,10 @@ The sum of the lengths of any two sides of a triangle always exceeds the length 
 
 You will need to raise a custom error type in order to make the bonus tests pass. Here is some helpful reading:
 
-* http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm
-* http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/
-* http://phrogz.net/programmingruby/tut_exceptions.html
-* http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/
+* [Quick Exceptions](http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm)
+* [Exception Handling](http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/)
+* [Exceptions Tutorial](http://phrogz.net/programmingruby/tut_exceptions.html)
+* [Using Custom Error Methods](http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/)
 
 ## Resources
 * [About.com](http://ruby.about.com/od/advancedruby/) - [Ruby Best Practices--Making Quick Exceptions](http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm)
