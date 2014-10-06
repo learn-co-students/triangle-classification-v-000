@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe 'Triangle' do
 
   it 'knows that equilateral triangles have equal sides' do
