@@ -1,12 +1,5 @@
-# Write your code here.
-
-class TriangleError < StandardError
-end
-
 class Triangle
-
   attr_reader :a, :b, :c
-
   def initialize(a, b, c)
     @a = a
     @b = b
@@ -14,32 +7,22 @@ class Triangle
   end
 
   def kind
-    sides = [a,b,c]
-    ineq = [a+b > c, a+c > b, b+c > a]
-
-    if sides.min <= 0 || ineq.include?(false)
-      raise TriangleError
-    end
-
-    if equilateral?
+    validate_triangle
+    if a == b && b == c
       :equilateral
-    elsif scalene?
-      :scalene
-    elsif isosceles?
+    elsif a == b || b == c || a == c
       :isosceles
+    else
+      :scalene
     end
   end
 
-  def equilateral?
-    a == b && b == c
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
   end
+end
 
-  def scalene?
-    a != b && a != c && b != c
-  end
-
-  def isosceles?
-    (a == b && b != c) || (b == c && c != a) || (a == c && c != b)
-  end
-  
+class TriangleError < StandardError
 end
