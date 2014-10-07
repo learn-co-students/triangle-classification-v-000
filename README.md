@@ -1,7 +1,7 @@
 ---
-  tags: todo, oop
-  languages: ruby
-  resources: 5
+tags: todo, oop
+languages: ruby
+resources: 5
 ---
 
 # Triangle
@@ -23,6 +23,8 @@ Make the tests pass!
 ## Hint
 
 The sum of the lengths of any two sides of a triangle always exceeds the length of the third side. This is a principle known as the _triangle inequality_.
+
+Further, each side must be larger than 0.
 
 ## Building and Raising a Custom Error
 
