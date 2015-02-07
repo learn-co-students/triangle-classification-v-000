@@ -6,7 +6,7 @@ resources: 5
 
 # Triangle
 
-![triangle cartoon](https://github.com/flatiron-school-curriculum/triangle-classification.git)
+![triangle cartoon](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/oo-labs/triangle.jpg)
 
 ## Instructions
 
