@@ -6,7 +6,7 @@ resources: 5
 
 # Triangle
 
-### Skills: Object Oriented Programming
+![triangle cartoon](https://github.com/flatiron-school-curriculum/triangle-classification.git)
 
 ## Instructions
 
@@ -36,6 +36,7 @@ You will need to raise a custom error type in order to make the bonus tests pass
 * [Using Custom Error Methods](http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/)
 
 ## Resources
+
 * [About.com](http://ruby.about.com/od/advancedruby/) - [Ruby Best Practices--Making Quick Exceptions](http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm)
 * [Skorks Blog](http://www.skorks.com/) - [Ruby Exceptions And Exception Handling](http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/)
 * [Programming Ruby: The Pragmatic Programmer's Guide](http://phrogz.net/programmingruby/) - [Exceptions, Catch, and Throw](http://phrogz.net/programmingruby/tut_exceptions.html)
