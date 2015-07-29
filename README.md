@@ -1,8 +1,4 @@
----
-tags: todo, oop
-languages: ruby
-resources: 5
----
+
 
 # Triangle
 
