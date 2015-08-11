@@ -1,12 +1,14 @@
-
-
 # Triangle
 
-![triangle cartoon](https://s3-us-west-2.amazonaws.com/web-dev-readme-photos/oo-labs/triangle.jpg)
+## Objectives
+
+1. Define a custom error and use it.
 
 ## Instructions
 
-Write a `Triangle` class that accepts its sides on initialization. Give your Triangles an instance method, `kind` that returns, as a symbol, its type. The valid types are:
+* Write a `Triangle` class that accepts three arguments on initialization. Each argument is a length of one of the three sides of the triangle. 
+
+* Give your Triangles an instance method, `kind` that returns, as a symbol, its type. The valid types are:
 
 1. `:equilateral`
 
@@ -14,7 +16,7 @@ Write a `Triangle` class that accepts its sides on initialization. Give your Tri
 
 3. `:scalene`
 
-Make the tests pass!
+* The `kind` method should raise a custom error, `TriangleError` if the triangle is invalid. Check out the hint below to understand what makes a triangle invalid. Write a custom error class, `TriangleError` and inherit it from `StandardError`. This custom error class can be defined insidie the `Triangle` class, just like in the example from the previous exercise. 
 
 ## Hint
 
@@ -22,20 +24,9 @@ The sum of the lengths of any two sides of a triangle always exceeds the length 
 
 Further, each side must be larger than 0.
 
-## Building and Raising a Custom Error
-
-You will need to raise a custom error type in order to make the bonus tests pass. Here is some helpful reading:
+## Resources 
 
 * [Quick Exceptions](http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm)
 * [Exception Handling](http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/)
-* [Exceptions Tutorial](http://phrogz.net/programmingruby/tut_exceptions.html)
-* [Using Custom Error Methods](http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/)
-
-## Resources
-
-* [About.com](http://ruby.about.com/od/advancedruby/) - [Ruby Best Practices--Making Quick Exceptions](http://ruby.about.com/od/advancedruby/qt/quickexceptions.htm)
-* [Skorks Blog](http://www.skorks.com/) - [Ruby Exceptions And Exception Handling](http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/)
-* [Programming Ruby: The Pragmatic Programmer's Guide](http://phrogz.net/programmingruby/) - [Exceptions, Catch, and Throw](http://phrogz.net/programmingruby/tut_exceptions.html)
-* [A Blog About Code](http://ablogaboutcode.com/) - [Using Custom Error Messages for Cleaner Code](http://ablogaboutcode.com/2011/01/03/using-custom-error-messages-for-cleaner-code/)
 * [Basic Mathematics](http://www.basic-mathematics.com/) - [Types of Triangles](http://www.basic-mathematics.com/types-of-triangles.html)
 
