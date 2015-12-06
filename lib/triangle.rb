@@ -17,6 +17,9 @@ class Triangle
       else
         self.kind = :scalene
       end
+      self.length_one = a
+      self.length_two = b
+      self.length_three = c
     end
   end
 end
