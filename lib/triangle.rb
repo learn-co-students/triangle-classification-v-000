@@ -12,7 +12,6 @@ class Triangle
 
     if (a+b<=c || b+c<=a || a+c<=b || a<=0 || b<=0 || c<=0)
       raise TriangleError
-          puts error.message
     else
       if a==b && b==c
         :equilateral
@@ -27,7 +26,5 @@ end
   
 
 class TriangleError < StandardError
-  def message
-    puts "The sum of any two sides of a triangle must exceed the value of the third side. Also, all three sides must be greater than 0."
-  end
+ 
 end
