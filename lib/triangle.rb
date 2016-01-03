@@ -5,11 +5,7 @@ class Triangle
   def kind
   	@sides.sort!
   	if @sides[0] <= 0 || (@sides[0] + @sides[1] <= @sides[2])
-  		begin
-  		raise TriangleError
-  		rescue TriangleError => error
-  			puts error.message
-  		end
+  			raise TriangleError
   	elsif @sides.uniq.count == 2
   		return :isosceles
   	elsif @sides.uniq.count == 1
@@ -21,7 +17,4 @@ class Triangle
 end
 
 class TriangleError < StandardError
-	def message
-		"This is not a valid triangle"
-	end
 end
