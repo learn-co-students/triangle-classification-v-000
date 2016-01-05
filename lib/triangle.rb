@@ -1,8 +1,6 @@
-require 'pry'
-
 class Triangle
-  attr_accessor :hypotenuse, :adjacent, :opposite
-  attr_reader :sides
+  attr_reader :hypotenuse, :adjacent, :opposite, :sides
+
   def initialize(hypotenuse, adjacent, opposite)
     @hypotenuse = hypotenuse
     @adjacent = adjacent
@@ -23,9 +21,12 @@ class Triangle
   end
 
   def invalid_triangle?
-    sides.all? { |side| side == 0 } || sides.any? { |side| side < 0 } || sides[0] + sides[1] <= sides[2]
+    sides.any? { |side| side <= 0 } || sides[0] + sides[1] <= sides[2]
   end
 end
 
 class TriangleError < StandardError
+  def message
+    "That's no triangle. Of that I'm sure."
+  end
 end
