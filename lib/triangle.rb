@@ -1,34 +1,28 @@
+require 'pry'
 class Triangle
 
-  attr_accessor :side_one_length, :side_two_length, :side_three_length
+  attr_reader :s1, :s2, :s3
 
-  def initialize(side_one_length, side_two_length, side_three_length)
-      @side_one_length = side_one_length
-      @side_two_length = side_two_length
-      @side_three_length = side_three_length
+  def initialize(s1, s2, s3)
+    @s1, @s2, @s3 = s1, s2, s3
   end
 
-  def valid?
-    if (side_one_length + side_two_length + side_three_length != 0) && (side_one_length + side_two_length > side_three_length) && (side_three_length + side_two_length > side_one_length) && (side_one_length > 0 && side_two_length > 0 && side_three_length > 0) && (side_one_length + side_three_length > side_two_length)
-      true
-    else
-      false
-    end
-  end
-
-  def triangle_type
-    if side_one_length != side_two_length && side_two_length != side_three_length && side_one_length != side_three_length
-      "scalene".to_sym
-    elsif side_one_length == side_two_length && side_two_length == side_three_length
-      "equilateral".to_sym
-    elsif side_one_length == side_two_length || side_three_length
-      "isosceles".to_sym
-    end
+  def valid_triangle? # wow, test was failing due to ridiculous logic error - was using or (||) instead of and (&&)
+    (self.s1 > 0 && self.s2 > 0 && self.s3 > 0) &&
+    self.s1 + self.s2 > self.s3 &&
+    self.s2 + self.s3 > self.s1 &&
+    self.s3 + self.s1 > self.s2
   end
 
   def kind
-    if valid?
-      triangle_type
+    if valid_triangle?
+      if self.s1 == self.s2 && self.s2 == self.s3
+        :equilateral
+      elsif self.s1 != self.s2 && self.s2 != self.s3 && self.s1 != self.s3
+        :scalene
+      else 
+        :isosceles
+      end
     else
       begin
         raise TriangleError
@@ -39,4 +33,12 @@ class Triangle
 end
 
 class TriangleError < StandardError
+  def message
+    "This is not a triangle. Please make sure that your values adhere to the 'triangle inequality' principle."
+  end
 end
+
+# This code is a refactor from a previous attempt.  Looks cleaner.  What I liked about the previous attempt
+# is the separation of concerns (e.g. created a method called #triangle_type.  The #kind method called
+# on the #valid? and #triangle_type and TriangleError methods.  Also, test did not pass initially because
+# I was rescuing errors.)
