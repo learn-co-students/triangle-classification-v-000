@@ -1,17 +1,17 @@
 class Triangle
   # write code here
-  attr_accessor :sides
+  attr_accessor :a, :b, :c
 
   def initialize(a, b, c)
-    @sides = [a, b, c]
+    @a, @b, @c = a, b, c
   end
 
   def kind
-    if (sides[0] <= 0 || sides[1] <= 0 || sides[2] <= 0) || sides.sort[2] * 2 >= sides[0] + sides[1] + sides[2]
+    if (a <= 0 || b <= 0 || c <= 0) || 2 * [a, b, c].sort[2] >= a + b + c
       raise TriangleError
-    elsif sides[0] == sides[1] && sides[1] == sides[2]
+    elsif a == b && b == c
       :equilateral
-    elsif sides[0] == sides[1] || sides[1] == sides[2] || sides[0] == sides[2]
+    elsif a == b || b == c || a == c
       :isosceles
     else
       :scalene
