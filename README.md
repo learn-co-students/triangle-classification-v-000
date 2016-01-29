@@ -43,4 +43,4 @@ Further, each side must be larger than 0.
 * [Basic Mathematics](http://www.basic-mathematics.com/) - [Types of Triangles](http://www.basic-mathematics.com/types-of-triangles.html)
 
 
-<a href='https://learn.co/lessons/triangle-classification' data-visibility='hidden'>View this lesson on Learn.co</a>
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/triangle-classification' title='Triangle'>Triangle</a> on Learn.co and start learning to code for free.</p>
