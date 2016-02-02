@@ -1,35 +1,28 @@
-require 'pry'
 class Triangle
-	
-	attr_accessor :sides
-  
-  def initialize(side1, side2, side3)
-  	@sides = [side1,side2,side3]
+  attr_reader :a, :b, :c
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
-  
+
   def kind
-  	if !self.valid?
-  		raise TriangleError
-  	else
-  		hash = sides.inject(Hash.new(0)) {|h, i| h[i] += 1; h}
-  		if hash.values.max < 2
-  			:scalene
-  		else
-  			hash.values.max > 2 ? :equilateral : :isosceles
-  		end
-  	end
+    validate_triangle
+    if a == b && b == c
+      :equilateral
+    elsif a == b || b == c || a == c
+      :isosceles
+    else
+      :scalene
+    end
   end
-  
-  def valid?
-  	return if sides.any? {|side| side <= 0}
-  	sides[0] + sides[1] > sides[2] &&
-  	sides[0] + sides[2]> sides[1] &&
-  	sides[1] + sides[2] > sides[0]
+
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
   end
 end
 
 class TriangleError < StandardError
-	def message
-		"Not a valid triangle"
-	end
 end
