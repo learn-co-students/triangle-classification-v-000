@@ -37,9 +37,7 @@ class Triangle
   def valid_triangle?
     if sides_greater_than_zero? && valid_side_lengths?
       true
-    elsif !sides_greater_than_zero?
-      raise TriangleError
-    elsif !valid_side_lengths?
+    else
       raise TriangleError
     end
   end
