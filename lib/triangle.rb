@@ -11,13 +11,12 @@ class Triangle
   end
 
   def kind
-    binding.pry
     if invalid?
-      begin
+      # begin
         raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
+      # rescue TriangleError => error
+        # puts error.message
+      # end
     elsif      
       self.equilateral?
         :equilateral
@@ -43,7 +42,7 @@ class Triangle
   end
 
   def invalid?
-    (@all_sides.any? { |side| side <= 0 }) || (@side1 + @side2 < @side3) || (@side2 + @side3 < @side1) || (@side1 + @side3 < @side2)
+    (@all_sides.any? { |side| side <= 0 }) || (@side1 + @side2 <= @side3) || (@side2 + @side3 <= @side1) || (@side1 + @side3 <= @side2)
   end
 
 end
