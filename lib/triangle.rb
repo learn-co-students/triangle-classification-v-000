@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
   
   attr_accessor :side1, :side2, :side3
@@ -10,6 +11,7 @@ class Triangle
   end
 
   def kind
+    binding.pry
     if invalid?
       begin
         raise TriangleError
@@ -20,8 +22,8 @@ class Triangle
       self.equilateral?
         :equilateral
     elsif 
-      self.isoceles?
-        :isoceles
+      self.isosceles?
+        :isosceles
     else
       self.scalene?
         :scalene
@@ -32,21 +34,24 @@ class Triangle
     @side1 == @side2 && @side2 == @side3 && !(self.invalid?)
   end
 
-  def isoceles?
+  def isosceles?
+    !(self.invalid?) && ((@side1 == @side2 && @side1 != @side3) || (@side1 == @side3 && @side1 != @side2) || (@side2 == @side3 && @side2 != @side1))
   end
 
   def scalene?
+    !(self.invalid?) && @side1 != @side2 && @side1 != @side3 && @side2 != @side3
   end
 
   def invalid?
-    @all_sides.any? { |side| side <= 0 } || @side1 + @side2 < @side3 || @side2 + @side3 < @side1 || @side1 + @side3 < @side2
+    (@all_sides.any? { |side| side <= 0 }) || (@side1 + @side2 < @side3) || (@side2 + @side3 < @side1) || (@side1 + @side3 < @side2)
   end
 
-
 end
+
 
 class TriangleError < StandardError
   def message
     "the triangle is invalid!"
   end
 end
+
