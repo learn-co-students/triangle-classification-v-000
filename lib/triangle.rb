@@ -7,16 +7,20 @@ class Triangle
   end
 
   def kind
-    if @sides.any? == 0 or (a + b <= c || b + c <= a || a + c <= b)
+    if invalid?
       raise TriangleError
     else
       case @sides.uniq.size
-      when 1 then :equilateral
-      when 2 then :isosceles
-      else :scalene
+        when 1 then :equilateral
+        when 2 then :isosceles
+        else :scalene
       end
     end
   end
+end
+
+def invalid?
+  @sides.any? == 0 or (a + b <= c || b + c <= a || a + c <= b)
 end
 
 class TriangleError < StandardError
