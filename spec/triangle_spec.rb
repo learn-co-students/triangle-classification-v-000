@@ -42,6 +42,7 @@ describe 'Triangle' do
 
   it 'knows that triangles with no size are illegal' do
     expect{Triangle.new(0, 0, 0).kind}.to raise_error(TriangleError)
+    #expect(Triangle.new(0, 0, 0).kind).to eq(:equilateral)
   end
 
   it 'knows that triangles with negative sides are illegal' do
