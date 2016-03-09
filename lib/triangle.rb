@@ -8,23 +8,16 @@ class Triangle
   def kind
     self.error 
     case [side_a,side_b,side_c].uniq.size
-    when 1 then @kind = :equilateral
-    when 2 then @kind = :isosceles
-    else        @kind = :scalene
+    when 1 then :equilateral
+    when 2 then :isosceles
+    else        :scalene
     end
   end
   def error
-    if [side_a,side_b,side_c].include?(0) || 
-      side_a >= side_b + side_c || 
-      side_b >= side_c + side_a || 
-      side_c >= side_b + side_a
-      raise TriangleError
-    elsif 
-      [side_a,side_b,side_c].each do |number|
-        if number < 0
-          raise TriangleError
-        end
-      end
+    if  side_a >= side_b + side_c || 
+        side_b >= side_c + side_a || 
+        side_c >= side_b + side_a
+        raise TriangleError
     end 
   end
 end
