@@ -1,34 +1,31 @@
 class Triangle
 
-  attr_accessor :length1, :length2, :length3
+  attr_accessor :a, :b, :c
   
-  def initialize(length1, length2, length3)
-    @length1 = length1
-    @length2 = length2
-    @length3 = length3
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
   def kind
-    if length1 > 0 && length2 > 0 && length3 > 0
-      if length1 == length2 && length1 == length3 && length2 == length3
-       `:equilateral`
-     elsif length1 == length2 || length1 == length3 || length2 == length3 
-       `:isosceles`  
-     else length1 != length2 && length1 != length3 && length2 != length3 
-        `:scalene` 
-      end
+    validate_triangle
+    if a == b && b == c
+       :equilateral
+    elsif a == b || a == c || b == c
+       :isosceles 
     else 
-      begin
-        raise PartnerError
-      rescue PartnerError => error
-          puts error.message
-      end
+        :scalene
     end
   end
+
+  def validate_triangle
+    unless ((a + b > c) && (a + c > b) && (b + c > a)) && ((a > 0) && (b > 0) && (c > 0))
+    raise TriangleError
+    end
+  end
+
 end
 
 class TriangleError < StandardError
-  def message 
-    "you must give the get_married method an argument of an instance of the person class!"
-  end
 end  
