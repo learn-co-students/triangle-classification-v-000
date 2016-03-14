@@ -7,9 +7,10 @@ class Triangle
     if not_valid?
       raise TriangleError
     else
-      if equilateral?
+      case 
+       when equilateral?
         :equilateral
-      elsif isosceles?
+      when isosceles?
         :isosceles
       else
         :scalene
