@@ -4,23 +4,19 @@ class Triangle
   end
 
   def kind
-    unless valid?
+    if not_valid?
       raise TriangleError
     else
-      if scalene?
-        :scalene
-      elsif equilateral?
+      if equilateral?
         :equilateral
       elsif isosceles?
         :isosceles
+      else
+        :scalene
       end
     end 
   end
-
-  def scalene?
-    @a != @b && @a != @c && @b != @c
-  end
-
+  
   def equilateral?
     @a == @b && @a == @c
   end
@@ -29,8 +25,8 @@ class Triangle
     @a == @b || @a == @c || @b == @c
   end
 
-  def valid?
-    @a + @b > @c && @a + @c > @b && @b + @c > @a
+  def not_valid?
+    !(@a + @b > @c && @a + @c > @b && @b + @c > @a)
   end
 end
 
