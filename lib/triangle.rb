@@ -1,27 +1,36 @@
 class Triangle
-  attr_accessor :triangles, :type, :equilateral, :isosceles, :scalene, :side1, :side2, :side3, sides
+  attr_accessor :triangles, :equilateral, :isosceles, :scalene, :side1, :side2, :side3, :sides #:type,
 
-  def initialize(side3)
-    sides = {side1:, side2:, side3}
-    (side1 + side2) > side3
-    (side2 + side3) > side1
-    (side1 + side3) > side2
-    @type = type
+  def initialize(sides)
+    sides = {side1:, side2:, side3:}
+   # @type = type
     @side1 = side1
     @side2 = side2
     @side3 = side3
+    sides.each {|k, v| v > 0}
+    (side1 + side2) > side3
+    (side2 + side3) > side1
+    (side1 + side3) > side2
   end
 
-  def triangles
+#   def triangles
 
-  end
+#   end
 
-  def type
-    @type
-  end
+#   def type
+#     @type
+#   end
 
   def kind
     @kind
+    if side1 == side2 == side3
+      self = equilateral
+    elsif
+      side1 == side2 and side1 !== side3
+      self = isosceles
+    else
+      self = scalene
+    end
   end
 end #Triangle class
 
@@ -46,4 +55,7 @@ end #Triangle class
 
 class TriangleError < StandardError
  # triangle error code
+  def message
+    puts "Not a legal triangle"
+  end
 end
