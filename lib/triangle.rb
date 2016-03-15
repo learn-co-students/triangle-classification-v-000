@@ -1,16 +1,16 @@
 class Triangle
   attr_accessor :triangles, :equilateral, :isosceles, :scalene, :side1, :side2, :side3, :sides #:type,
 
-  def initialize(sides)
-    sides = {side1:, side2:, side3:}
-   # @type = type
-    @side1 = side1
-    @side2 = side2
-    @side3 = side3
-    sides.each {|k, v| v > 0}
-    (side1 + side2) > side3
-    (side2 + side3) > side1
-    (side1 + side3) > side2
+  def initialize(side1, side2, side3)
+#     sides = {side1:, side2:, side3:}
+     @type = type
+     @side1 = side1
+     @side2 = side2
+     @side3 = side3
+#     sides.each {|k, v| v > 0}
+#     (side1 + side2) > side3
+#     (side2 + side3) > side1
+#     (side1 + side3) > side2
   end
 
 #   def triangles
@@ -22,14 +22,17 @@ class Triangle
 #   end
 
   def kind
-    @kind
+   
     if side1 == side2 == side3
-      self = equilateral
+      #self = equilateral
+      :quilateral
     elsif
       side1 == side2 and side1 !== side3
-      self = isosceles
+     # self = isosceles
+      :isosceles
     else
-      self = scalene
+      #self = scalene
+      :scalene
     end
   end
 end #Triangle class
