@@ -17,15 +17,15 @@ class Triangle
   end
 
   def equilateral
-    return true if self.valid && @sides.uniq.length == 1 && self.ineq
+    self.valid && @sides.uniq.length == 1 && self.ineq
   end
 
   def isosceles
-    return true if self.valid && @sides.uniq.length == 2 && self.ineq
+    self.valid && @sides.uniq.length == 2 && self.ineq
   end
 
   def scalene
-    return true if self.valid && @sides.uniq.length == 3 && self.ineq
+    self.valid && @sides.uniq.length == 3 && self.ineq
   end
 
   def kind
