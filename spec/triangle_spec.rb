@@ -1,3 +1,4 @@
+require 'pry'
 describe 'Triangle' do
 
   it 'knows that equilateral triangles have equal sides' do
@@ -39,7 +40,7 @@ describe 'Triangle' do
   it 'knows that very small triangles are legal' do
     expect(Triangle.new(0.4, 0.6, 0.3).kind).to eq(:scalene)
   end
-
+  
   it 'knows that triangles with no size are illegal' do
     expect{Triangle.new(0, 0, 0).kind}.to raise_error(TriangleError)
   end
