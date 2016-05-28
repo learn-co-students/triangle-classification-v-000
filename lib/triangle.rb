@@ -10,7 +10,7 @@ class Triangle
 
   def kind
 
-    if self.err_conditions == true
+    if self.err_conditions 
       begin
         raise TriangleError
       rescue TriangleError => error
@@ -43,11 +43,25 @@ class Triangle
     end
   end
 end
-  class TriangleError < StandardError
-    def message
-      "The sum of any two sides must be greater than the third side.  These measurements are not a Triangle.  Try again Champ!"
-    end
+
+class TriangleError < StandardError
+  def message
+    "The sum of any two sides must be greater than the third side.  These measurements are not a Triangle.  Try again Champ!"
   end
+end
 
 
-# Triangle.new(3,4,-5).kind
+
+
+
+
+
+
+
+
+
+
+
+
+
+
