@@ -24,4 +24,5 @@ class Triangle
 end
 
 class TriangleError < StandardError
+  "This is not a possible triangle."
 end
