@@ -1,6 +1,6 @@
 class Triangle
 
-  attr_accessor :s1, :s2, :s3, :sides
+  attr_reader :s1, :s2, :s3, :sides
 
 
   def initialize(s1,s2,s3)
@@ -9,20 +9,25 @@ class Triangle
   end
 
   def greater_than_zero?
-    self.sides.all? { |el| el > 0 }
+    sides.all? { |el| el > 0 }
   end
 
   def two_sides_higher? 
-    self.sides[0..1].inject(:+) > self.sides.last && self.sides[1..2].inject(:+) > self.sides.first && self.sides.first + self.sides.last > self.sides[1]
+    sides[0..1].inject(:+) > sides.last && sides[1..2].inject(:+) > sides.first && sides.first + sides.last > sides[1]
+  end
+
+  def equal_sides_count?
+    sides.count(sides.max_by { |el| sides.count(el) } )
   end
 
   def kind
-    if sides.count(s1) == 3 && self.greater_than_zero? && self.two_sides_higher?
+    if equal_sides_count? == 3 && greater_than_zero? && two_sides_higher?
       :equilateral
-    elsif (s1 != s2 && s1 != s3 && s2 != s3) && self.greater_than_zero? && self.two_sides_higher?
-      :scalene
-    elsif (sides.count(s1) == 2 || sides.count(s2) == 2 || sides.count(s3) == 2) && self.greater_than_zero? && self.two_sides_higher?
+    elsif equal_sides_count? == 2 && greater_than_zero? && two_sides_higher?
       :isosceles
+    elsif 
+      equal_sides_count? == 1  && greater_than_zero? && two_sides_higher?
+      :scalene
     else 
       raise TriangleError
       puts error.message
