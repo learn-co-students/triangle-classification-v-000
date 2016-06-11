@@ -1,10 +1,10 @@
 class Triangle
 
-  attr_reader :s1, :s2, :s3, :sides
+  attr_accessor :s1, :s2, :s3
+  attr_reader :sides
 
 
   def initialize(s1,s2,s3)
-    @s1, @s2, @s3 = s1, s2, s3
     @sides = [] << s1 << s2 << s3 
   end
 
