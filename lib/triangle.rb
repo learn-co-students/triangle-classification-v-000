@@ -9,22 +9,31 @@ class Triangle
     @length_3 = length_3
   end
 
+  # def in_valid
+  #   @length_1 + @length_2 < @length_3 || @length_2 + @length_3 < @length_1 || @length_1 + @length_3 < @length_2 && @length_1 < 0 || @length_2 < 0 || @length_3 < 0 && @length_1 % 1 != 0 || @length_2 % 1 == 0 || @length_3 % 1 == 0
+  # end
+  # #
+  # def kind
+  #     if in_valid
+  #        raise TriangleError
+  #     elsif @length_1 == @length_2 && @length_2 == @length_3 && @length_1 == @length_3
+  #       :equilateral
+  #     elsif @length_1 == @length_2 || @length_1 == @length_3 || @length_2 == @length_3
+  #       :isosceles
+  #     elsif @length_1 != @length_2 && @length_2 != @length_3 && @length_3 != @length_1 && @length_3 != @length_2
+  #       :scalene
+  #       # binding.pry
+  #     end
+  # end # end of method
   def in_valid
-    @length_1 + @length_2 < @length_3 || @length_2 + @length_3 < @length_1 || @length_1 + @length_3 < @length_2 && @length_1 < 0 || @length_2 < 0 || @length_3 < 0 && @length_1 % 1 != 0 || @length_2 % 1 == 0 || @length_3 % 1 == 0
+    array = []
+    array.push(@length_1 , @length_2, @length_3)
+    array.each_with_index do |length, index|
   end
-  #
+
   def kind
-      if in_valid
-         raise TriangleError
-      elsif @length_1 == @length_2 && @length_2 == @length_3 && @length_1 == @length_3
-        :equilateral
-      elsif @length_1 == @length_2 || @length_1 == @length_3 || @length_2 == @length_3
-        :isosceles
-      elsif @length_1 != @length_2 && @length_2 != @length_3 && @length_3 != @length_1 && @length_3 != @length_2
-        :scalene
-        # binding.pry
-      end
-  end # end of method
+
+  end
 
 end # end of class
 
