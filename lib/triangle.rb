@@ -14,9 +14,10 @@ class Triangle
   end
   #
   def kind
-      if in_valid
+    unless in_valid
         raise TriangleError
      #end of conditional
+     
       elsif @length_1 == @length_2 && @length_2 == @length_3 && @length_1 == @length_3
         :equilateral
       elsif @length_1 == @length_2 || @length_1 == @length_3 || @length_2 == @length_3
