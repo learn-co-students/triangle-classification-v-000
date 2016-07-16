@@ -8,28 +8,22 @@ class Triangle
     @length_2 = length_2
     @length_3 = length_3
   end
-  def boo
-  if @length_1 == @length_2 && @length_2 == @length_3 && @length_1 == @length_3
-    :equilateral
-  elsif @length_1 == @length_2 || @length_1 == @length_3 || @length_2 == @length_3
-    :isosceles
-  elsif @length_1 != @length_2 && @length_2 != @length_3 && @length_3 != @length_1 && @length_3 != @length_2
-end
-  end
 
   def in_valid
     @length_1 + @length_2 < @length_3 || @length_2 + @length_3 < @length_1 || @length_1 + @length_3 < @length_2 && @length_1 < 0 || @length_2 < 0 || @length_3 < 0 && @length_1 % 1 != 0 || @length_2 % 1 == 0 || @length_3 % 1 == 0
   end
   #
   def kind
-      unless in_valid
-        raise TriangleError
-     #end of conditional
-
-        # :scalene
+      if in_valid
+         raise TriangleError
+      elsif @length_1 == @length_2 && @length_2 == @length_3 && @length_1 == @length_3
+        :equilateral
+      elsif @length_1 == @length_2 || @length_1 == @length_3 || @length_2 == @length_3
+        :isosceles
+      elsif @length_1 != @length_2 && @length_2 != @length_3 && @length_3 != @length_1 && @length_3 != @length_2
+        :scalene
         # binding.pry
       end
-
   end # end of method
 
 end # end of class
