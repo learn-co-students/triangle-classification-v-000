@@ -1,17 +1,19 @@
+require 'pry'
+
 class Triangle
   attr_accessor :type, :side_1, :side_2, :side_3
 
   def initialize(side_1, side_2, side_3)
-    @side_1 = side_1
-    @side_2 = side_2
-    @side_3 = side_3
+    @s1 = side_1
+    @s2 = side_2
+    @s3 = side_3
   end
 
   def kind
-    if (side_1 > 0 && side_2 > 0 && side_3 > 0) && (side_1 + side_2 > side_3 && side_2 + side_3 > side_1 && side_1 + side_3 > side_2)
-      if side_1 == side_2 && side_2 == side_3
+    if (@s1 > 0 && @s2 > 0 && @s3 > 0) && (@s1 + @s2 > @s3 && @s2 + @s3 > @s1 && @s1 + @s3 > @s2)
+      if @s1 == @s2 && @s2 == @s3
         self.type = :equilateral
-      elsif side_1 == side_2 || side_2 == side_3 || side_1 == side_3
+      elsif @s1 == @s2 || @s2 == @s3 || @s1 == @s3
         self.type = :isosceles
       else
         self.type = :scalene
