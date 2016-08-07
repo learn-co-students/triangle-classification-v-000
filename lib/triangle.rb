@@ -1,5 +1,3 @@
-require 'pry'
-
 class Triangle
   attr_accessor :length1, :length2, :length3
 
@@ -14,18 +12,13 @@ class Triangle
   end
 
   def kind
+    raise TriangleError if !triangle?
     if triangle? && @length1 == @length2 && @length2 == @length3
       :equilateral
     elsif triangle? && (@length1 == @length2 && @length2 != @length3) || (@length2 == @length3 && @length3 != @length1) || (@length1 == @length3 && @length1 != @length2)
       :isosceles
-    elsif triangle? && @length1 != @length2 && @length2 != @length3
+    else triangle? && @length1 != @length2 && @length2 != @length3
       :scalene
-    else
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        error.message
-      end
     end
   end
 
@@ -37,8 +30,3 @@ class TriangleError < StandardError
     "That's not a triangle, so I can't tell you what kind of triangle it is!"
   end
 end
-
-triangle = Triangle.new(10, 10, 10)
-binding.pry
-
-
