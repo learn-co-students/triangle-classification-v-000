@@ -8,26 +8,6 @@ class Triangle
     self.c = c
   end
 
-  def all_sides_equal
-    a == b && a == c
-  end
-
-  def two_sides_equal
-    if a == b && a != c
-      true
-    elsif a == c && a != b
-      true
-    elsif b == c && b != a
-      true
-    else
-      false
-    end
-  end
-
-  def no_sides_equal
-    a != b && a != c && b != c
-  end
-
   def illegal
     if a == 0 && b == 0 && c == 0
       true
@@ -45,11 +25,11 @@ class Triangle
   def kind
     if self.illegal == true
       raise TriangleError
-    elsif self.all_sides_equal
+    elsif a == b && a == c
       :equilateral
-    elsif self.two_sides_equal
+    elsif a == b && a != c || a == c && a != b || b == c && b != a
       :isosceles
-    elsif self.no_sides_equal
+    elsif a != b && a != c && b != c
       :scalene
     end
   end
