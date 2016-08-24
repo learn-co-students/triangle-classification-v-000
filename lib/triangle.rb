@@ -9,15 +9,9 @@ class Triangle
   end
 
   def illegal
-    if a == 0 && b == 0 && c == 0
+    if a <= 0 || b <= 0 || c <= 0
       true
-    elsif a < 0 || b < 0 || c < 0
-      true
-    elsif a + b <= c
-      true
-    elsif a + c <= b
-      true
-    elsif b + c <= a
+    elsif a + b <= c || a + c <= b || b + c <= a
       true
     end
   end
