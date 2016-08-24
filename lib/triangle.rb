@@ -9,15 +9,15 @@ class Triangle
   end
 
   def all_sides_equal
-    self.a == self.b && self.a == self.c
+    a == b && a == c
   end
 
   def two_sides_equal
-    if self.a == self.b && self.a != self.c
+    if a == b && a != c
       true
-    elsif self.a == self.c && self.a != self.b
+    elsif a == c && a != b
       true
-    elsif self.b == self.c && self.b != self.a
+    elsif b == c && b != a
       true
     else
       false
@@ -25,19 +25,19 @@ class Triangle
   end
 
   def no_sides_equal
-    self.a != self.b && self.a != self.c && self.b != self.c
+    a != b && a != c && b != c
   end
 
   def illegal
-    if self.a == 0 && self.b == 0 && self.c == 0
+    if a == 0 && b == 0 && c == 0
       true
-    elsif self.a < 0 || self.b < 0 || self.c < 0
+    elsif a < 0 || b < 0 || c < 0
       true
-    elsif self.a + self.b <= self.c
+    elsif a + b <= c
       true
-    elsif self.a + self.c <= self.b
+    elsif a + c <= b
       true
-    elsif self.b + self.c <= self.a
+    elsif b + c <= a
       true
     end
   end
