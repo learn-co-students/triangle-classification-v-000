@@ -1,20 +1,20 @@
 class Triangle
 
-  attr_accessor :x, :y, :z
+  attr_accessor :s1, :s2, :s3
 
-  def initialize(x, y, z)
-    @x = x
-    @y = y
-    @z = z
-    @sides = [x, y, z]
+  def initialize(s1, s2, s3)
+    @s1 = s1
+    @s2 = s2
+    @s3 = s3
+    @sides = [s1, s2, s3]
   end
 
   def kind
     if triangle? == false || positive? == false
       raise TriangleError
-    elsif @sides.count(x) == 3
+    elsif @sides.count(s1) == 3
       :equilateral
-    elsif @sides.count(x) == 2 || @sides.count(y) == 2 || @sides.count(z) == 2
+    elsif @sides.count(s1) == 2 || @sides.count(s2) == 2 || @sides.count(s3) == 2
       :isosceles
     else
       :scalene
@@ -22,7 +22,7 @@ class Triangle
   end
 
   def triangle?
-    (x + y) > z && (x + z) > y && (y + z) > x
+    (s1 + s2) > s3 && (s1 + s3) > s2 && (s2 + s3) > s1
   end
 
   def positive?
