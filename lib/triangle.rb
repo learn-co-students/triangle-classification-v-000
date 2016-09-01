@@ -12,8 +12,8 @@ class Triangle
     else
       case @sides.uniq.size
         when 1 then :equilateral
-        when 2 then :isosceles
-        else :scalene
+          when 2 then :isosceles
+            else :scalene
       end
     end
   end
