@@ -15,7 +15,6 @@ class Triangle
     elsif valid
       :scalene
     else
-      raise TriangleError
     end
   end
 
