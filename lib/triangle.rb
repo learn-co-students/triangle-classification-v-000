@@ -17,15 +17,13 @@ class Triangle
     sum = 0
     sorted.each {|each| sum+=each}
 
-    longest_side >= sum #false
+    longest_side <= sum #false
     binding.pry
 end
 
   def sides
     a <= 0 || b <= 0 || c <= 0  #false
-
   end
-
 
   def kind
    formula == true || sides == true
