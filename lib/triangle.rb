@@ -17,8 +17,8 @@ class Triangle
     sum = 0
     sorted.each {|each| sum+=each}
 
-    longest_side <= sum #false
-    binding.pry
+    longest_side >= sum #false
+    # binding.pry
 end
 
   def sides
@@ -26,12 +26,12 @@ end
   end
 
   def kind
-   formula == true || sides == true
+   if formula == true || sides == true
   #  binding.pry
       begin
         raise TriangleError
-      rescue TriangleError => error
       end
+    end
 
     if [a, b, c].uniq.size == 1
       :equilateral
