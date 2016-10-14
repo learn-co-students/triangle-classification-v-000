@@ -10,8 +10,6 @@ class Triangle
   end
 
   def formula
-    # binding.pry
-    #  self.a + self.b > self.c || self.b + self.c > self.a || self.c + self.a > self.b
     sorted = [a, b, c].sort
     longest_side = sorted.pop
     sum = 0
