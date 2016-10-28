@@ -16,7 +16,7 @@
 
 3. `:scalene`
 
-* The `kind` method should raise a custom error, `TriangleError` if the triangle is invalid. Check out the hint below to understand what makes a triangle invalid. Write a custom error class, `TriangleError` and inherit it from `StandardError`. This custom error class should be defined in the same file at the `Triangle` class, but *outside of the class definition of `Triangle`. Like this:
+* The `kind` method should raise a custom error, `TriangleError` if the triangle is invalid. Check out the hint below to understand what makes a triangle invalid. Write a custom error class, `TriangleError` and inherit it from `StandardError`. This custom error class should be defined in the same file as the `Triangle` class, but outside of the class definition of `Triangle`. Like this:
 
 ```ruby
 # lib/triangle.rb
@@ -44,3 +44,5 @@ Further, each side must be larger than 0.
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/triangle-classification' title='Triangle'>Triangle</a> on Learn.co and start learning to code for free.</p>
+
+<p class='util--hide'>View <a href='https://learn.co/lessons/triangle-classification'>OO Triangle</a> on Learn.co and start learning to code for free.</p>
