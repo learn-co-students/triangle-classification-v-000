@@ -1,3 +1,25 @@
+require 'pry'
 class Triangle
-  # write code here
+
+  def initialize (length_a, length_b, length_c)
+    @length_a = length_a
+    @length_b = length_b
+    @length_c = length_c
+  end
+
+  def kind
+    if @length_a + @length_b > @length_c && @length_a + @length_c > @length_b && @length_b + @length_c > @length_a && @length_a > 0 && @length_b > 0 && @length_c > 0
+      if [@length_a,@length_b,@length_c].uniq.count == 1
+        :equilateral
+      elsif [@length_a,@length_b,@length_c].uniq.count == 2
+        :isosceles
+      else
+        :scalene
+      end
+    else
+      raise TriangleError
+    end
+  end
 end
+
+class TriangleError < StandardError;end
