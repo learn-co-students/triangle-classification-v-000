@@ -10,8 +10,6 @@ class Triangle
     if @sides_array.any? { |e| e == 0 } || @long >= @mid + @short
       begin
         raise TriangleError
-      rescue TriangleError => error
-        puts TriangleError.message
       end
     else
       @short = @sides_array[0]
