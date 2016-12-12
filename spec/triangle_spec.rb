@@ -40,6 +40,7 @@ describe 'Triangle' do
     expect(Triangle.new(0.4, 0.6, 0.3).kind).to eq(:scalene)
   end
 
+  # Bonus Tests
   it 'knows that triangles with no size are illegal' do
     expect{Triangle.new(0, 0, 0).kind}.to raise_error(TriangleError)
   end
