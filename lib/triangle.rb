@@ -15,7 +15,7 @@ class Triangle
       #compare separated element to sum of other 2
       lines_sum = temp[0] + temp[1]
       #if not a valid triangle raise error
-      raise TriangleError if line >= lines_sum || line == 0
+      raise TriangleError if line >= lines_sum || line <= 0
     end
 
     triangle_types[@lines.uniq.length-1]
@@ -23,5 +23,4 @@ class Triangle
 end
 
 class TriangleError < StandardError
- "invalid triangle"
 end
