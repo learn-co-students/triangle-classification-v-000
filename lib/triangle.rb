@@ -8,14 +8,15 @@ class Triangle
 
   def kind
   	side_array = [@side1, @side2, @side3].sort
+    unique_arr = side_array.uniq
   	if side_array.any? { | side | side <= 0 } || (side_array[0] + side_array[1] <= side_array[2])
   		raise TriangleError
-  	elsif side_array.uniq.length == 1
+  	elsif unique_arr.length == 1
   		:equilateral
-  	elsif side_array == side_array.uniq
+    elsif unique_arr.length == 2
+      :isosceles
+  	else
   		:scalene
-  	elsif side_array.uniq.length == 2
-  		:isosceles
   	end
   end
 
