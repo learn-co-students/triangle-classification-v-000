@@ -1,30 +1,33 @@
 class Triangle
+  attr_reader :a, :b, :c
 
-  def initialize(length1, length2, length3)
-    @length1 = length1
-    @length2 = length2
-    @length3 = length3
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
+
+  # def kind
+  #   valid_check
+  #   type
+  # end
 
   def kind
-    if ((@length1 || @length2 || @length3) <= 0) || (@length1 < (@length2 + @length3)) || (@length2 < (@length1 + @length3)) || (@length3 < (@length1 + @length2))
-      begin
-        raise TriangleError
-      rescue TriangleError
-      end
+    valid_check
+    if (@a == @b) && (@a == @c)
+      return :equilateral
+    elsif (@a == @b) || (@a == @c) || (@b == @c)
+      return :isosceles
     else
-      if (@length1 != @length2) && (@length1 != @length3) && (@length2 != @length3)
-        return :scalene
-      elsif (@length1 == @length2) && (@length1 == @length3) && (@length2 == @length3)
-        return :equilateral
-      else
-        # (@length1 == @length2) || (@length1 == @length3) || (@length2 == @length3)
-        return :isosceles
-      end
+      return :scalene
     end
   end
+
+  def valid_check
+    raise TriangleError if ((a || b || c) <= 0) || (a >= (b + c)) || (b >= (a + c)) || (c >= (a + b))
+  end
+
 end
 
 class TriangleError < StandardError
-  puts "Invalid triangle!"
 end
