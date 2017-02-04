@@ -22,10 +22,10 @@ class Triangle
   
   def kind
     if self.illegal_triangle?
-    #  begin
+       begin
         raise TriangleError 
-    #  rescue TriangleError => error
-    #    puts error.message
+      rescue TriangleError => error
+       puts error.message
     #  end
     elsif (@side1 == @side2 && @side2 == @side3)
       :equilateral 
