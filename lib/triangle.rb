@@ -1,6 +1,8 @@
 class Triangle
   # write code here
 
+  
+
   def initialize(s1, s2 ,s3)
   	@s1= s1
   	@s2= s2
@@ -8,7 +10,8 @@ class Triangle
   end
 
   def kind
-  	if (@s1<=0 || @s2<=0 || @s3<=0) || [@s1,@s2,@s3].any?{|t| (@s1+@s2+@s3 - t) <= t} 
+  	triangle=[@s1,@s2,@s3]
+  	if triangle.any?{|t| t <=0} || triangle.any?{|t| (triangle.reduce :+) - t <= t} 
   		raise TriangleError
   	elsif @s1 == @s2 && @s2 == @s3
   		return :equilateral
