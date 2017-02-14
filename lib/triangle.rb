@@ -8,7 +8,7 @@ class Triangle
   end
 
   def kind
-  	if (@s1<=0 || @s2<=0 || @s3<=0) || [@s1,@s2,@s3].map{|t| (@s1+@s2+@s3 - t) <= t}.any? 
+  	if (@s1<=0 || @s2<=0 || @s3<=0) || [@s1,@s2,@s3].any?{|t| (@s1+@s2+@s3 - t) <= t} 
   		raise TriangleError
   	elsif @s1 == @s2 && @s2 == @s3
   		return :equilateral
