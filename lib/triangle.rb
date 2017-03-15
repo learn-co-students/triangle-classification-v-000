@@ -14,7 +14,7 @@ class Triangle
     :isosceles
     elsif length1 != length3 && length1 != length2
     :scalene
-  elsif #length1 == 0 && length2 == 0 && length3 == 0
+    else #length1 == 0 && length2 == 0 && length3 == 0
       begin
          raise TriangleError
       rescue TriangleError => error
