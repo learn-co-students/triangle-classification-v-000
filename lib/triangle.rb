@@ -14,15 +14,12 @@ class Triangle
   end
 
   def kind
-    a_b_sum = @a_side + @b_side
-    a_c_sum = @a_side + @c_side
-    b_c_sum = @b_side + @c_side
 
-    if a_b_sum > @c_side && a_c_sum > @b_side && b_c_sum > @a_side
+    if is_triangle?
       case
-      when @a_side == @b_side && @a_side == @c_side && @b_side == @c_side
+      when equilateral?
         :equilateral
-      when @a_side != @b_side && @a_side != @c_side && @b_side != @c_side
+      when scalene?
         :scalene
       else
         :isosceles
@@ -31,6 +28,23 @@ class Triangle
     raise TriangleError
     end
 
+  end
+
+
+  def equilateral?
+    @a_side == @b_side && @a_side == @c_side && @b_side == @c_side #if all sides are even, returns true
+  end
+
+  def scalene?
+    @a_side != @b_side && @a_side != @c_side && @b_side != @c_side #if all sides are unequal, returns true
+  end
+
+  def is_triangle?
+    a_b_sum = @a_side + @b_side
+    a_c_sum = @a_side + @c_side
+    b_c_sum = @b_side + @c_side
+
+    a_b_sum > @c_side && a_c_sum > @b_side && b_c_sum > @a_side #returns true if triangle is legal
   end
 
 end
