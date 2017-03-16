@@ -21,10 +21,8 @@ class Triangle
     end
     sides = [@length1,@length2,@length3].sort
     #sorts numeric value in ascending order
-    unless sides[0]+sides[1]>sides[2]
-      #Unless is opposite of If stmt construction
-      #Unless (sum of 2 sides IS GREATER (A.K.A.
-      #SAME AS ALWAYS EXCEEDS) than 3rd side stmt)
+    unless sides[0]+sides[1]>sides[2] # is FALSE
+      #(AKA, when sum of 2 sides FAILS TO exceed 3rd side)
       raise TriangleError
     end
     if @length1 == @length2 && @length1 == @length3  && @length2 == @length3
