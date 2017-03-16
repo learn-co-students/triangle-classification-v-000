@@ -23,11 +23,11 @@ class Triangle
     elsif @length1 != @length3 && @length1 != @length2
     :scalene
     else #@length1 == 0 && @length2 == 0  && @length3 == 0
-      begin
+      #begin
         raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
+      #rescue TriangleError => error
+        #puts error.message
+      #end
     end #length1 == 0 && length2 == 0 && length3 == 0
   end
 end
