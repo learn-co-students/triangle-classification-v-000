@@ -6,20 +6,29 @@ class Triangle
     @length2 = length2
     @length3 = length3
   end
+  #equilateral = @length1 == @length2 && @length1 == @length3  && @length2 == @length3
+  #isosceles = @length1 == @length2 || @length1 == @length3 || @length2 == @length3
+  #scalene = @length1 != @length3 && @length1 != @length2
   def kind
-    if length1 == length2 && length1 == length3  && length2 == length3
+    #begin
+    #  raise TriangleError
+    #rescue TriangleError => error
+    #  puts error.message
+    #end
+    if @length1 == @length2 && @length1 == @length3  && @length2 == @length3
     #binding.pry
     :equilateral
-    elsif length1 == length2 || length1 == length3 || length2 == length3
+    elsif @length1 == @length2 || @length1 == @length3 || @length2 == @length3
     :isosceles
-    elsif length1 != length3 && length1 != length2
+    elsif @length1 != @length3 && @length1 != @length2
     :scalene
-    else #length1 == 0 && length2 == 0 && length3 == 0
+    else #@length1 == 0 && @length2 == 0  && @length3 == 0
       begin
-         raise TriangleError
+        raise TriangleError
       rescue TriangleError => error
-         puts error.message
+        puts error.message
       end
+    end #length1 == 0 && length2 == 0 && length3 == 0
   end
 end
 class TriangleError < StandardError
@@ -32,5 +41,4 @@ class TriangleError < StandardError
   def message
     "Not a valid triangle"
   end
-end
 end
