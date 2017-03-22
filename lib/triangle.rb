@@ -1,5 +1,5 @@
 class Triangle
-
+ #sides are represented in their algebraic form#
     attr_accessor :a, :b, :c
 
     def initialize(a, b, c)
