@@ -12,13 +12,14 @@ class Triangle
   end
 
   def kind
-    result=:scalene
     if !valid?
       raise TriangleError
     elsif @a==@b && @b==@c
       result = :equilateral
     elsif @a==@b || @a==@c || @b==@c
       result = :isosceles
+    else
+      result = :scalene
     end
     result
   end
