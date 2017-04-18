@@ -11,11 +11,8 @@ class Triangle
   end
 
   def kind
-    if check_side_length? || check_summ_of_sides?
-      begin
-        raise TriangleError
-      end
-    elsif self.all_sides.uniq.length == 1
+    raise TriangleError if check_side_length? || check_summ_of_sides?
+    if self.all_sides.uniq.length == 1
       :equilateral
     elsif self.all_sides.uniq.length != self.all_sides.length
       :isosceles
