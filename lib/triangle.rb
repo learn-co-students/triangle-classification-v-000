@@ -13,7 +13,7 @@ class Triangle
     x, y, z = [a,b,c].sort
     raise TriangleError if x + y <= z
     [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
-  end
+   end
 end
 
 class TriangleError < StandardError
