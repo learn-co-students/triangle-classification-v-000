@@ -9,22 +9,23 @@ class Triangle
   end
 
   def kind
-#    if a == b && b == c
-#      :equilateral
-#    elsif a == b && b !=c || b == c && c != a || c == a && a != b
-#      :isosceles
-#    elsif a != b && b != c && c != a
-#      :scalene
+    if validate_triangle == false
+      raise TriangleError
+    elsif a == b && b == c
+      :equilateral
+    elsif a == b && b !=c || b == c && c != a || c == a && a != b
+      :isosceles
+    elsif a != b && b != c && c != a
+      :scalene
+    end
+  end
 
-    raise TriangleError if [a,b,c].min <= 0
-    x, y, z = [a,b,c].sort
-    raise TriangleError if x + y <= z
-    [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
-
-#    raise TriangleError if [a,b,c].min <= 0
-#    x, y, z = [a,b,c].sort
-#    raise TriangleError if x + y <= z
-#    [:equilateral,:isosceles,:scalene].fetch([a,b,c].uniq.size - 1)
+  def validate_triangle
+    if (a + b <= c) || (b + c <= a) || c + a <= b
+      false
+    elsif a <= 0 || b <= 0 || c <= 0
+      false
+    end
   end
 end
 
