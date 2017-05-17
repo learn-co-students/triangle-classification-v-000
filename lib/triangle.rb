@@ -47,7 +47,7 @@ class Triangle
     end
   end
 end
-
+end
   class TriangleError < StandardError
     attr_accessor :side_a, :side_b, :side_c
 
