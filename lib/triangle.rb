@@ -34,8 +34,9 @@ class Triangle
   # end
     #  if side_a <= 0 || side_b <= 0 || side_c <= 0
     # :illegal
-    if triangle.class != Triangle
-     raise TriangleError
+    # if triangle.class != Triangle
+    #  raise TriangleError
+
      if side_a == side_b && side_a == side_c
     :equilateral
 
@@ -44,8 +45,11 @@ class Triangle
 
     elsif side_a != side_b && side_b != side_c && side_c != side_a
     :scalene
+
+    else triangle.class != Triangle
+      raise TriangleError
     end
-  end
+  #end
 end
 end
   class TriangleError < StandardError
