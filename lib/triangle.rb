@@ -5,9 +5,10 @@ class Triangle
   end
   def kind
     @sides.each{ |side| raise TriangleError if side <= 0 }
-    raise TriangleError if @sides[0] >= @sides[1] + @sides[2]
-    raise TriangleError if @sides[1] >= @sides[0] + @sides[2]
-    raise TriangleError if @sides[2] >= @sides[0] + @sides[1]
+    @sides.each{ |side| raise TriangleError if side >= @sides.inject(:+) - side }
+    # raise TriangleError if @sides[0] >= @sides[1] + @sides[2]
+    # raise TriangleError if @sides[1] >= @sides[0] + @sides[2]
+    # raise TriangleError if @sides[2] >= @sides[0] + @sides[1]
 
     type = :equilateral if @sides.uniq.count == 1
     type = :isosceles if @sides.uniq.count == 2
