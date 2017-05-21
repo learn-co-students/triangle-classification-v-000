@@ -9,10 +9,6 @@ class Triangle
     raise TriangleError if @sides[1] >= @sides[0] + @sides[2]
     raise TriangleError if @sides[2] >= @sides[0] + @sides[1]
 
-    # puts "#{@sides[0]} #{@sides[1] + @sides[2]}"
-    # puts "#{@sides[1]} #{@sides[0] + @sides[2]}"
-    # puts "#{@sides[2]} #{@sides[0] + @sides[1]}"
-
     type = :equilateral if @sides.uniq.count == 1
     type = :isosceles if @sides.uniq.count == 2
     type = :scalene if @sides.uniq.count == 3
