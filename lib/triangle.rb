@@ -9,14 +9,9 @@ class Triangle
 
   def kind
     if @first_side_length <= 0 || @second_side_length <= 0 || @third_side_length <= 0
-      # begin
-      raise TriangleError
+      raise TriangleError, "triangles with no size are illegal."
     elsif @first_side_length+@second_side_length <= @third_side_length || @first_side_length+@third_side_length <= @second_side_length || @third_side_length+@second_side_length <= @first_side_length
-      raise TriangleError
-
-      # rescue TriangleError => error
-      #   error.message
-      # end
+      raise TriangleError, "triangles violating triangle inequality are illegal."
 
     elsif @first_side_length == @second_side_length && @second_side_length == @third_side_length
       :equilateral
@@ -30,9 +25,4 @@ class Triangle
 end
 
 class TriangleError < StandardError
-
-  # def message
-  #   puts "triangles with no size are illegal."
-  # end
-
 end
