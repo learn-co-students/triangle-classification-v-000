@@ -9,25 +9,28 @@ class Triangle
     @type = type
   end
 
-  def kind
-    # if (@a < 0 || @b < 0 || @c < 0) || (@a == 0 || @b == 0 || @c == 0) || ((@a + @b) < @c || (@a + @c) < @b || (@a + @c) < @b)
-      
-    if @a == @b && @a == @c && @b == @c  
+  def kind      
+    if @a == @b && @a == @c && @b == @c && !illegal_triangle?
       @type = :equilateral
-    elsif (@a == @b || @a == @c || @b == @c) 
+    elsif (@a == @b || @a == @c || @b == @c) && !illegal_triangle?
       @type = :isosceles
-    elsif @a != @b && @a != @c && @b != @c 
+    elsif @a != @b && @a != @c && @b != @c && !illegal_triangle?
       @type = :scalene 
-    elsif ((@a + @b) < @c || (@a + @c) < @b || (@a + @c) < @b) 
-      begin
+    else 
         raise TriangleError
-      end
     end 
   end
+
+  def illegal_triangle?
+    if (@a <= 0 || @b <= 0 || @c <= 0) || ((@a + @b) <= @c || (@a + @c) <= @b || (@a + @c) <= @b)
+      true 
+    end
+  end 
+  
 end
 
 class TriangleError < StandardError
   def message 
-        "That's an illegal triangle."
+        "Yo, that's an illegal triangle."
   end 
 end
