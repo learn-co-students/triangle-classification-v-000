@@ -14,7 +14,7 @@ class Triangle
   end
 
   def kind
-    if self.invalid?
+    if invalid?
       raise TriangleError
     elsif a == b && b == c
       :equilateral
