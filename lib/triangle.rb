@@ -1,23 +1,26 @@
-require "pry"
 class Triangle
-  attr_accessor :first, :second, :third
+  attr_accessor :a, :b, :c
 
-  def initialize(first, second, third)
-    @first = first
-    @second = second
-    @third = third
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
   end
 
   def kind
-    if self.first <= 0 && self.second <= 0 && self.third <= 0 || (self.first + self.second <= self.third) || (self.second + self.third <= self.first) || (self.first + self.third <= self.second)
+    if false_triangle?
       raise TriangleError
-    elsif self.first == self.second && self.second == self.third
+    elsif a == b && b == c
       :equilateral
-    elsif self.first == self.second || self.second == self.third || self.first == self.third
+    elsif a == b || b == c || a == c
       :isosceles
-    elsif self.first != self.second && self.second != self.third
+    else
       :scalene
     end
+  end
+
+  def false_triangle?
+    a <= 0 && b <= 0 && c <= 0 || (a + b <= c) || (b + c <= a) || (a + c <= b)
   end
 
 end
