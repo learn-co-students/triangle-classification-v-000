@@ -9,22 +9,21 @@ class Triangle
   end
 
   def kind
-    if self.length_one <= 0 || self.length_two <= 0  || self.length_three <= 0
+    if length_one <= 0 || length_two <= 0  || length_three <= 0
       raise TriangleError
-    elsif self.length_one + self.length_two <= self.length_three ||
-      self.length_two + self.length_three <= self.length_one ||
-      self.length_one + self.length_three <= self.length_two
+    elsif length_one + length_two <= length_three ||
+      length_two + length_three <= length_one ||
+      length_one + length_three <= length_two
       raise TriangleError
 
-    elsif self.length_one == self.length_two && self.length_one == self.length_three &&
-      self.length_two==self.length_three
+    elsif length_one == length_two && length_one == length_three &&
+      length_two == length_three
       :equilateral
-    elsif self.length_one == self.length_two && self.length_one != self.length_three ||
-      self.length_one != self.length_two && self.length_two == self.length_three ||
-      self.length_one == self.length_three && self.length_one != self.length_two
+    elsif length_one == length_two && length_one != length_three ||
+      length_one != length_two && length_two == length_three ||
+      length_one == length_three && length_one != length_two
       :isosceles
-    else self.length_one != self.length_two && self.length_one != self.length_three &&
-      self.length_two != self.length_three
+    else 
       :scalene
     end
   end
