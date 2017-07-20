@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :length_one, :length_two, :length_three, :equilateral, :isosceles, :scalene
+  attr_accessor :length_one, :length_two, :length_three
 
   def initialize(length_one, length_two, length_three)
     @length_one = length_one
@@ -36,7 +36,7 @@ class TriangleError < StandardError
 end
 
 
-#--------------School's code (cleaner)---------------- 
+#--------------School's code (cleaner)----------------
 # class Triangle
 #   attr_reader :a, :b, :c
 #   def initialize(a, b, c)
