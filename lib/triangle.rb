@@ -16,6 +16,11 @@ def kind
         return :scalene
       end
 end
+
+def illegal?
+  if a >= 0 && b >= 0 && c >= 0
+    raise TriangleError
+  end
  
  
 end
