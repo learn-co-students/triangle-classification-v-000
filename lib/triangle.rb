@@ -7,25 +7,29 @@ class Triangle
     @c = c
   end
   
-def kind
-      if a == b && b == c
-        return :equilateral
-      elsif a == b || b == c || a == c
-        return :isosceles
-      else a != b && b != c && c != a
-        return :scalene
-      end
-end
-
-def illegal?
-  if a >= 0 && b >= 0 && c >= 0
-    raise TriangleError
+  def kind
+    case 
+      when a == b && b == c
+          return :equilateral
+      when a == b || b == c || a == c
+          return :isosceles
+      when a != b && b != c && c != a
+          return :scalene
+      when a <= 0 && b <= 0 && c <= 0
+         raise TriangleError
+      else a + b > c|| b + c  > a || c + a > b
+        raise TriangleError
+    end
   end
- 
- 
+
 end
+ 
+ 
   
 class TriangleError < StandardError
+  def message
+    "Illegal Triangle"
+  end
 end
 
 
