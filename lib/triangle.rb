@@ -8,28 +8,31 @@ class Triangle
   end
   
   def kind
-    case 
-      when a == b && b == c
-          return :equilateral
-      when a == b || b == c || a == c
-          return :isosceles
-      when a != b && b != c && c != a
-          return :scalene
-      when a <= 0 && b <= 0 && c <= 0
-         raise TriangleError
-      else a + b > c|| b + c  > a || c + a > b
+  
+    if ( a <= 0 || b <= 0 || c <= 0) || ( a + b <= c || b + c  <= a || c + a <= b)
         raise TriangleError
     end
+      case 
+        when a == b && b == c
+            return :equilateral
+        when a == b || b == c || a == c
+            return :isosceles
+        else a != b && b != c && c != a
+            return :scalene
+      end
   end
-
-
- 
- 
+end 
   
 class TriangleError < StandardError
+ # triangle error code
 end
 
-end
+
+ 
+  
+
+
+
 
 
 
