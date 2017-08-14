@@ -7,7 +7,7 @@ class Triangle
   	@c_side = c_side
   end
 
-  def kind
+  def kind #can we make this more abstract??
   	if (@a_side + @b_side <= @c_side) || (@a_side + @c_side <= @b_side) || (@b_side + @c_side <= @a_side) || (@a_side < 0 || @b_side < 0 || @c_side <0)
   		#begin
   		raise TriangleError
