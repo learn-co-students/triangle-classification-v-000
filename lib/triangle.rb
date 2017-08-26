@@ -1,4 +1,4 @@
-require 'pry'
+#my crude passing method
 class Triangle
   attr_accessor :side_1, :side_2, :side_3
 
@@ -35,20 +35,33 @@ class TriangleError < StandardError
 
 end
 
-# describe 'Triangle' do
+# brilliant solution method
+class Triangle
+  attr_accessor :a, :b, :c
 
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
+  end
 
-#
-#   it 'knows that triangles violating triangle inequality are illegal' do
-#     expect{Triangle.new(1, 1, 3).kind}.to raise_error(TriangleError)
-#   end
-#
-#   it 'knows that triangles violating triangle inequality are illegal 2' do
-#     expect{Triangle.new(2, 4, 2).kind}.to raise_error(TriangleError)
-#   end
-#
-#   it 'knows that triangles violating triangle inequality are illegal 3' do
-#     expect{Triangle.new(7, 3, 2).kind}.to raise_error(TriangleError)
-#   end
-#
-# end
+  def kind
+    validate_triangle
+    if a == b && b == c
+      :equilateral
+    elsif a == b || b == c || a == c
+      :isosceles
+    else
+      :scalene
+    end
+  end
+
+  def validate_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    real_triangle << false if [a,b,c].include?(0)
+    raise TriangleError if real_triangle.include?(false)
+  end
+end
+
+class TriangleError < StandardError
+end
