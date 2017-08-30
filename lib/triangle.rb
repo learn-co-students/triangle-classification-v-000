@@ -25,10 +25,32 @@ class Triangle
       raise TriangleError
     end
   end
-
 end
-
-
 
 class TriangleError < StandardError
 end
+
+# def kind
+#   sides = [@x, @y, @z]
+#   # None of the sides can be zero.
+#   if sides.include? 0
+#     # Raise TriangleError
+#   end
+#
+#   numEqualSides = 0
+#   sides.each do |side|
+#     if sides.count(side) > 1
+#       numEqualSides += 1
+#     end
+#   end
+#
+#   puts "Equal sides: #{numEqualSides}"
+#
+#   if numEqualSides == 3
+#     return :equilateral
+#   elsif numEqualSides == 2
+#     return :isosceles
+#   elsif numEqualSides == 0
+#     return :scalene
+#   end
+# end
