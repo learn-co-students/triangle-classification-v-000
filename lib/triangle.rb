@@ -10,10 +10,8 @@ class Triangle
   end
 
   def kind
-    sorted_array = sides.sort
-    if sides.any? { |side| side.zero? || side < 0 }
-      raise TriangleError
-    elsif sorted_array[0] + sorted_array[1] <= sorted_array[2]
+    sides_arr = sides.sort
+    if sides.any? { |side| side <= 0 || sides_arr[0] + sides_arr[1] <= sides_arr[2] }
       raise TriangleError
     end
     return :equilateral if sides.uniq.count <= 1
