@@ -30,5 +30,5 @@ class Triangle
 end
 
 class TriangleError < StandardError
-
+  puts "your triangle is fucked. Learn2Math, kthxbai."
 end
