@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :equilateral, :isosceles, :scalene, :s1, :s2, :s3
+  attr_accessor :s1, :s2, :s3
 
   def initialize(s1, s2, s3)
     @s1 = s1
@@ -8,21 +8,20 @@ class Triangle
   end
 
   def kind
-    if s1 <= 0 || s2 <= 0 || s3 <= 0
-      begin
-        raise TriangleError
-      end
-    elsif (s1 + s2 <= s3) || (s1 + s3 <= s2) || (s2 + s3 <= s1)
-      begin
-        raise TriangleError
-      end
-    elsif s1 == s2 && s2 == s3 && s1 != 0
-      return :equilateral
+    validate_triangle
+    if s1 == s2 && s2 == s3 && s1 != 0
+      :equilateral
     elsif s1 != s2 && s2 != s3 && s1 != s3
-      return :scalene
+      :scalene
     else
-      return :isosceles
+      :isosceles
     end
+  end
+
+  def validate_triangle
+    real_triangle = [(s1 + s2 > s3), (s2 + s3 > s1), (s1 + s3 > s2)]
+    [s1, s2, s3].each { |s| real_triangle << false if s <= 0}
+    raise TriangleError if real_triangle.include?(false)
   end
 
 
