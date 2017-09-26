@@ -26,11 +26,7 @@ attr_accessor :side1, :side2, :side3
         raise TriangleError
       end
     end
-
-  def equilateral
-    side1 + side2 = side3
   end
-end
 
 class TriangleError < StandardError
 end
