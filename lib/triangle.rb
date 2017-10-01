@@ -1,4 +1,5 @@
 class Triangle
+  attr_accessor :a, :b, :c
 
   def initialize (a, b, c)
     @a = a
@@ -7,13 +8,13 @@ class Triangle
   end
 
   def kind
-    if (@a + @b) <= @c || (@a + @c) <= @b || (@b + @c) <= @a ||
-    @a <= 0 || @b <= 0 || @c <= 0
+    if (a + b) <= c || (a + c) <= b || (b + c) <= a ||
+    a <= 0 || b <= 0 || c <= 0
       raise TriangleError
     else
-      if @a == @b && @a == @c
+      if a == b && a == c
         :equilateral
-      elsif @a == @b || @a == @c || @b == @c
+      elsif a == b || a == c || b == c
         :isosceles
       else
         :scalene
