@@ -11,14 +11,30 @@ class Triangle
     result = nil
     check_inequality = false
 
+    # check equilateral
+    if @all_sides[0] == @all_sides[1] && @all_sides[0] == @all_sides[2]
+      result = :equilateral
+    end
+
+    # check scalene
+    @all_sides.each_index do |index|
+      if @all_sides[index] != @rotate_one[index] && @all_sides[index] != @rotate_two[index]
+        result = :scalene
+      end
+    end
+
+    # check isosceles
+    @all_sides.each_index do |index|
+      if @all_sides[index] == @rotate_one[index] && @all_sides[index] != @rotate_two[index]
+        result = :isosceles
+      end
+    end
+
+    # check validity
     @all_sides.each_index do |index|
       if @all_sides[index] + @rotate_one[index] <= @rotate_two[index]
         check_inequality = true
       end
-    end
-
-    if @all_sides[0] == @all_sides[1] && @all_sides[0] == @all_sides[2]
-      result = :equilateral
     end
 
     if @all_sides[0] <= 0 || @all_sides[1] <= 0 || @all_sides[2] <= 0 || check_inequality == true
