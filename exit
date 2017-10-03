@@ -1,0 +1,30 @@
+
+[1mFrom:[0m /home/joeymichalinamariano-96231/code/labs/triangle-classification-v-000/lib/triangle.rb @ line 16 Triangle#kind:
+
+    [1;34m11[0m: [32mdef[0m [1;34mkind[0m
+    [1;34m12[0m:   result = [1;36mnil[0m
+    [1;34m13[0m:   check_inequality = [1;36mfalse[0m
+    [1;34m14[0m: 
+    [1;34m15[0m:   @all_sides.each [32mdo[0m |index|
+ => [1;34m16[0m:     binding.pry
+    [1;34m17[0m:     rotate_one = @all_sides.rotate
+    [1;34m18[0m:     rotate_two = @all_sides.rotate([1;34m2[0m)
+    [1;34m19[0m:     [32mif[0m index + rotate_one[index] > rotate_two[index]
+    [1;34m20[0m:       check_inequality = [1;36mtrue[0m
+    [1;34m21[0m:     [32mend[0m
+    [1;34m22[0m:   [32mend[0m
+    [1;34m23[0m: 
+    [1;34m24[0m:   [32mif[0m @side_two <= [1;34m0[0m || @side_two <= [1;34m0[0m || @side_three <= [1;34m0[0m || check_inequality == [1;36mtrue[0m
+    [1;34m25[0m:     [32mbegin[0m
+    [1;34m26[0m:      raise [1;34;4mStandardError[0m
+    [1;34m27[0m:     [32mrescue[0m [1;34;4mStandardError[0m => error
+    [1;34m28[0m:       puts error.message
+    [1;34m29[0m:     [32mend[0m
+    [1;34m30[0m:   [32melse[0m
+    [1;34m31[0m:     [32mif[0m @side_one == @side_two && @side_one == @side_three
+    [1;34m32[0m:       result = [33m:equilateral[0m
+    [1;34m33[0m:     [32mend[0m
+    [1;34m34[0m:   [32mend[0m
+    [1;34m35[0m:   result
+    [1;34m36[0m: [32mend[0m
+
