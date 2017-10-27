@@ -18,19 +18,18 @@ class Triangle
         :isosceles
       end
     else
-       if a <= 0 || b <= 0 || c <= 0 || a + b < c || b + c = a || c + a < b
-         raise TriangleError
-         puts error.message
+     if a <= 0 || b <= 0 || c <= 0 || a + b < c || b + c = a || c + a < b
+        raise TriangleError
       end
-    end
+   end
   end
 end
 
 class TriangleError < StandardError
-  def message
-    "triangles with no size, negative sides or inequality are illegal."
-  end
+  # def message
+  #   "triangles with no size, negative sides or inequality are illegal."
+  # end
 end
 
-# shape = Triangle.new(5, 8, 9)
+# shape = Triangle.new(0, 0, 0)
 # shape.kind
