@@ -1,11 +1,5 @@
-#require_relative "../lib/error.rb"
-
 class Triangle
-  # write code here
   attr_accessor :type
-  #TriangleError=StandardError
-
-
 
   def initialize(a,b,c)
     puts "#{a} #{b} #{c}"
@@ -26,14 +20,14 @@ class Triangle
   end
 
   def kind
-    raise TriangleError if @type==:illigal
+    raise (err=TriangleError.new), err.message if @type==:illigal
     @type
   end
 
-  class TriangleError < StandardError
-    def message
-        puts "wrong triangle"
-    end
-  end
+end
 
+class TriangleError < StandardError
+  def message
+      "wrong triangle"
+  end
 end
