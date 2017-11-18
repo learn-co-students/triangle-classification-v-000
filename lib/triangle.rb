@@ -6,7 +6,7 @@ class Triangle
 
   def initialize(a,b,c)
     puts "#{a} #{b} #{c}"
-    if a*b*c==0
+    if a*b*c==0 || a+b<=c || b+c<=a || a+c<=b || a<0 || b<0 || c<0
       @type=:illigal
     else
       if a==b and b==c
@@ -26,6 +26,7 @@ class Triangle
 
     if @type==:illigal
       begin
+        #puts "#{@type}"
          raise TriangleError
       rescue TriangleError => error
         puts error.message
@@ -35,10 +36,10 @@ class Triangle
     end
   end
 
-  class TriangleError<StandardError
-    def message
-        "wrong triangle"
-    end
+  class TriangleError < StandardError
+    #def message
+    #    "wrong triangle"
+    #end
   end
 
 end
