@@ -1,3 +1,11 @@
 class Triangle
-  # write code here
+
+
+
+
+
+end
+
+def TriangleError
+
 end
