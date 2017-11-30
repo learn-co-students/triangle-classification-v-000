@@ -18,7 +18,7 @@ class Triangle
   end
 
   def kind
-    if self.sides.any? {|i| i <= 0 || self.sides.max >= (self.sides.min + i)}
+    if self.sides.any? {|i| i <= 0 || (self.sides.min + i) <= self.sides.max }
         raise TriangleError
         puts error.message
     elsif @side1 == @side2 && @side2 == @side3
