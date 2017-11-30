@@ -7,22 +7,20 @@ class Triangle
     @side2 = side2
     @side3 = side3
     @sides = []
+@sides << side1
+@sides << side2
+@sides << side3
   end
 
   def sides
-    @sides << @side1
-    @sides << @side2
-    @sides << @side3
+    @sides
 #    @middle = @sides.find_all {|i| i != sides.max }
   end
 
   def kind
-    if self.sides.any? {|i| i <= 0}
-      begin
+    if self.sides.any? {|i| i <= 0 || self.sides.max >= (self.sides.min + i)}
         raise TriangleError
-      rescue TriangleError => error
         puts error.message
-      end
     elsif @side1 == @side2 && @side2 == @side3
         :equilateral
     elsif @side1 == @side2 || @side1 == @side3 || @side2 == @side3
@@ -41,7 +39,3 @@ class TriangleError < StandardError
   end
 
 end
-
-triangle = Triangle.new(1, 1, -1)
-triangle.kind
-
