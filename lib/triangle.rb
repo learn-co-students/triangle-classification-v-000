@@ -31,6 +31,6 @@ end
 
 class TriangleError < StandardError
   def message
-    "This is not a valid triangle"
+    "This is not a valid triangle, please try again. Hint: the length of all three sides must be greater than 0, and the sum of the lengths of any two sides must be greater than the length of the third side."
   end
 end
