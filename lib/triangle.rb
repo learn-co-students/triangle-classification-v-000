@@ -44,7 +44,4 @@ end
 
 
 class TriangleError < StandardError
-   def message
-     "There's something wrong with this triangle."
-   end
 end
