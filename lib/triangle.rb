@@ -1,38 +1,29 @@
 class Triangle
-  attr_accessor :side_one, :side_two, :side_three
+  attr_accessor :a, :b, :c
   
-  def initialize(side_one, side_two, side_three)
-    @side_one = side_one
-    @side_two = side_two
-    @side_three = side_three
+  def initialize(a, b, c)
+    @a = a
+    @b = b
+    @c = c
+  end
+
+  def isosceles?
+    a != b && b == c || a == c && c != b || a == b && b != c
+  end
+
+  def invalid?
+    a + b <= c || a + c <= b || b + c <= a || a <= 0 || b <= 0 || c <= 0
   end
 
   def kind
-    if side_one + side_two <= side_three 
-      raise TriangleError
-    elsif
-      side_one + side_three <= side_two
-      raise TriangleError
-    elsif
-      side_two + side_three <= side_one
+    if invalid?
       raise TriangleError
     elsif 
-      side_one == 0 || side_two == 0 || side_three == 0
-      raise TriangleError
-    elsif side_one < 0 || side_two < 0 || side_three < 0
-      raise TriangleError
-    elsif  
-      side_one == side_two && side_two == side_three
+      isosceles?
+      :isosceles
+    elsif 
+      a == b && b == c
       :equilateral
-    elsif 
-      side_one != side_two && side_two == side_three
-      :isosceles
-    elsif 
-      side_one == side_three && side_three != side_two
-      :isosceles
-    elsif 
-      side_one == side_two && side_two != side_three
-      :isosceles
     else
       :scalene
     end
@@ -40,15 +31,8 @@ class Triangle
 end
 
 class TriangleError < StandardError
-  # triangle error code
+    
 end
 
 
-# def get_married(person)
-#   self.partner = person
-#   if person.class != Person 
-#     raise PartnerError 
-#   else
-#     person.partner = self
-#   end
-# end
+
