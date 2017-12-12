@@ -33,9 +33,11 @@ class Triangle
         raise TriangleError
     elsif length_1 + length_2 < length_3 
         raise TriangleError
+    elsif length_1 + length_3 <= length_2
+      raise TriangleError
     elsif length_2 + length_3 < length_1
         raise TriangleError
-#    elsif length_1 + length_3 > length_2
+   
       # - :equilateral - all three sides are equal
       elsif length_1 == length_2 && length_2 == length_3 && length_1 == length_3
         :equilateral 
