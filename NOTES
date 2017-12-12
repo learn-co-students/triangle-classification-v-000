@@ -1,0 +1,12 @@
+knows that triangles with no size are illegal (FAILED - 1)
+knows that triangles with negative sides are illegal (FAILED - 2)
+knows that triangles violating triangle inequality are illegal (FAILED - 3)
+knows that triangles violating triangle inequality are illegal 2 (FAILED - 4)
+knows that triangles violating triangle inequality are illegal 3 (FAILED - 5)
+
+if @side_a == @side_b && @side_a == @side_c && @side_b == @side_c
+  @type = :equilateral
+elsif @side_a == @side_b || @side_c == @side_b || @side_a == @side_c
+  @type = :isosceles
+elsif @side_a != @side_b && @side_a != @side_c
+  @type = :scalene
