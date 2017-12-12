@@ -4,6 +4,7 @@ class Triangle
   
   # initialize with 3 arguments (length_1, length_2, length_3 - these will be integers)
   attr_accessor :length_1, :length_2, :length_3
+  
   def initialize(length_1, length_2, length_3)
     @length_1 = length_1 
     @length_2 = length_2
@@ -24,9 +25,19 @@ class Triangle
 #    if length_1 + length_2 > length_3 
 #    elsif length_2 + length_3 > length_1 
 #    elsif length_1 + length_3 > length_2
-    # - valid triangle types are: 
+    # - valid triangle types are:
+      
+    if length_1 == 0 || length_2 == 0 || length_3 == 0
+        raise TriangleError
+    elsif length_1 < 0 || length_2 < 0 || length_3 < 0
+        raise TriangleError
+    elsif length_1 + length_2 < length_3 
+        raise TriangleError
+    elsif length_2 + length_3 < length_1
+        raise TriangleError
+#    elsif length_1 + length_3 > length_2
       # - :equilateral - all three sides are equal
-      if length_1 == length_2 && length_2 == length_3 && length_1 == length_3
+      elsif length_1 == length_2 && length_2 == length_3 && length_1 == length_3
         :equilateral 
       # - :isosceles - 2 sides are equal
       elsif length_1 == length_2 || length_2 == length_3 || length_1 == length_3
@@ -34,14 +45,17 @@ class Triangle
       # - :scalene - no sides are equal 
       elsif length_1 != length_2 && length_2 != length_3 && length_1 != length_3
         :scalene
-      elsif length_1 == 0 || length_2 == 0 || length_3 == 0
-        raise TriangleError
   # the kind method should raise a custom error - TriangleError
+  
     end 
   end 
-  # write a custom error class, include after the Triangle class 
-  class TriangleError < StandardError
-    # the customer error class should be inherited from StandardError
-  end 
-  
+  # write a custom error class, include after the Triangle class
 end
+
+
+class TriangleError < StandardError
+    # the customer error class should be inherited from StandardError
+    def message 
+      "That triangle is illegal. Please enter a valid triangle."
+    end 
+  end 
