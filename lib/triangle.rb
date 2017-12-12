@@ -20,10 +20,10 @@ class Triangle
         # - length_1 + length_2 
         # - length_2 + length_3 
         # - length_1 + length_3
-    binding.pry
-    if length_1 + length_2 > length_3 
-    elsif length_2 + length_3 > length_1 
-    elsif length_1 + length_3 > length_2
+#    binding.pry
+#    if length_1 + length_2 > length_3 
+#    elsif length_2 + length_3 > length_1 
+#    elsif length_1 + length_3 > length_2
     # - valid triangle types are: 
       # - :equilateral - all three sides are equal
       if length_1 == length_2 && length_2 == length_3 && length_1 == length_3
@@ -32,12 +32,16 @@ class Triangle
       elsif length_1 == length_2 || length_2 == length_3 || length_1 == length_3
         :isosceles
       # - :scalene - no sides are equal 
-      else
+      elsif length_1 != length_2 && length_2 != length_3 && length_1 != length_3
         :scalene
+      elsif length_1 == 0 || length_2 == 0 || length_3 == 0
+        raise TriangleError
   # the kind method should raise a custom error - TriangleError
     end 
   end 
   # write a custom error class, include after the Triangle class 
+  class TriangleError < StandardError
     # the customer error class should be inherited from StandardError
+  end 
   
 end
