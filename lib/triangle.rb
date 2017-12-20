@@ -9,7 +9,7 @@ class Triangle
     end
 
   def kind
-      if x < 0 || y < 0 || z < 0 ||  x == 0 || y == 0 || z == 0 || y+z < x || y > x+z || z > x+y || y+z == x || y == x+z || z == x+y  
+      if x <= 0 || y <= 0 || z <= 0 || x >= y+z || y >= x+z || z >= x+y 
         raise TriangleError
 
       elsif x == y && x == z
