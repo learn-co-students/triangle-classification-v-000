@@ -1,19 +1,27 @@
 class Triangle 
 #=================properties===================
-  attr_accessor :type
+  attr_accessor :type, :sizes
 #=================intialize====================
-  def initialize(s1, s2, s3)
-    if s1 <= 0 || s2 <= 0 || s3 <= 0 || s1+s2 <= s3 || s1+s3 <= s2 || s3+s2 <= s1 then  raise TriangleError
-    elsif s1 == s2 && s2 == s3 then self.type = :equilateral
-    else s1 == s2 || s2 == s3 || s1 == s3 ? self.type = :isosceles : self.type = :scalene end
+  def initialize(a,b,c)
+    self.sizes = [a,b,c]
+    if not_valid?(a,b,c) then raise TriangleError else assign(a,b,c) end
   end
 #=================instance=====================
   def kind
     self.type
   end
+#=================helpers======================  
+  def not_valid?(a,b,c)         
+    self.sizes.any?{|s| s <= 0} || self.sizes.permutation(3).any?{|a,b,c| a+b<=c}
+  end
+  
+  def assign(a,b,c)
+    if self.sizes.uniq.length==1 then self.type = :equilateral
+    else self.sizes.uniq.length==2 ? self.type = :isosceles : self.type = :scalene end
+  end
 #==============================================
 end
 
-############### CUSTOM ERROR ##################
+############### CUSTOM ERROR ##################a
 class TriangleError < StandardError
 end
