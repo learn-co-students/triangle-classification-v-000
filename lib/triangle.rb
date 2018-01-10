@@ -12,7 +12,6 @@ class Triangle
 
   def kind
     if self.valid?
-      #CHECK STUFF
       if @first == @second && @second == @third
         :equilateral
       elsif @first == @second || @first == @third || @second == @third
@@ -26,7 +25,6 @@ class Triangle
   end
 
   def valid?
-    # binding.pry
     valid = true
     if @first >= @second + @third || @second >= @first + @third || @third >= @first + @second
       valid = false
