@@ -8,10 +8,9 @@ class Triangle
   end
 
   def kind
-    all = [@one,@two,@three]
-    sorted = all.sort
+    all = [@one,@two,@three].sort
 
-    if (sorted[0] + sorted[1]) <= sorted[2]
+    if (all[0] + all[1]) <= all[2]
       raise TriangleError
     else
       if all.uniq.length == 1
