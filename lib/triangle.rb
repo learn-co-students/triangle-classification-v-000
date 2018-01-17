@@ -1,5 +1,6 @@
 class Triangle
-  attr_reader :a, :b, :c
+    attr_reader :a, :b, :c
+
     def initialize(a, b, c)
       @a = a
       @b = b
@@ -7,22 +8,25 @@ class Triangle
     end
 
     def kind
-      validate_triangle
-      if a == b && b == c
+      valid?
+      if a == b && a == c
         :equilateral
-      elsif a == b || b == c || a == c
+      elsif (a == b && a != c) || (b == c && b != a) || (a == c && a != b)
         :isosceles
       else
         :scalene
       end
     end
 
-    def validate_triangle
-      real_triangle = [(a  b > c), (a  c > b), (b  c > a)]
-      [a, b, c].each { |s| real_triangle << false if s <= 0 }
-      raise TriangleError if real_triangle.include?(false)
+    def valid?
+      if (a > 0 && b > 0 && c > 0) && (a  b > c) && (b  c > a) && (a  c > b)
+        true
+      else
+        raise TriangleError
+      end
     end
+
   end
 
-class TriangleError < StandardError
-end
+  class TriangleError < StandardError
+  end
