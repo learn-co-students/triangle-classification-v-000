@@ -1,32 +1,32 @@
 class Triangle
-    attr_reader :a, :b, :c
+    attr_accessor :one, :two, :three
 
-    def initialize(a, b, c)
-      @a = a
-      @b = b
-      @c = c
+    def initialize(one, two, three)
+      @one = one
+      @two = two
+      @three = three
     end
 
     def kind
-      valid?
-      if a == b && a == c
-        :equilateral
-      elsif (a == b && a != c) || (b == c && b != a) || (a == c && a != b)
-        :isosceles
-      else
-        :scalene
-      end
-    end
+      all = [@one,@two,@three].sort
 
-    def valid?
-      if (a > 0 && b > 0 && c > 0) && (a  b > c) && (b  c > a) && (a  c > b)
-        true
-      else
+      if (all[0] + all[1]) <= all[2]
         raise TriangleError
+      else
+        if all.uniq.length == 1
+          return :equilateral
+        elsif all.uniq.length != all.length
+          return :isosceles
+        else
+          return :scalene
+        end
       end
+
     end
 
   end
 
+
   class TriangleError < StandardError
+
   end
