@@ -17,7 +17,8 @@ class Triangle
 
     if l + r <= b || l + b <= r || r + b <= l || l <= 0 || r <= 0 || b <= 0
       begin
-        raise TriangleError
+        raise TriangleError => error
+        puts error.message
       end
 
     elsif equilateral
