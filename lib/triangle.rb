@@ -17,8 +17,7 @@ class Triangle
 
     if l + r <= b || l + b <= r || r + b <= l || l <= 0 || r <= 0 || b <= 0
       begin
-        raise TriangleError => error
-        puts error.message
+        raise TriangleError
       end
 
     elsif equilateral
@@ -37,7 +36,5 @@ class Triangle
 end
 
 class TriangleError < StandardError
-  def message
-    "That's not a triangle, motherfucker"
-  end
+  
 end
