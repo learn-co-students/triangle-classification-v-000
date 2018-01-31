@@ -59,5 +59,4 @@ describe 'Triangle' do
   it 'knows that triangles violating triangle inequality are illegal 3' do
     expect{Triangle.new(7, 3, 2).kind}.to raise_error(TriangleError)
   end
-
 end
