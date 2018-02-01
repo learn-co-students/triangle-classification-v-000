@@ -1,6 +1,6 @@
 class Triangle
 
-  attr_accessor :a, :b, :c, 
+  attr_accessor :a, :b, :c, :isosceles
 
   def initialize(a, b, c)
     @a = a
@@ -11,10 +11,14 @@ class Triangle
   def kind
   raise TriangleError if a == 0 || b == 0 || c == 0
   raise TriangleError if a+b<=c or b+c<=a or a+c<=b
-  return :equilateral if a == c and a == b
-  return :isosceles if a == b or b == c or a == c
-  :scalene
-end
+   if a == c and a == b
+     :equilateral
+   elsif
+     a == b or b == c or a == c
+     :isosceles
+  else :scalene
+  end
+ end
 end
 
 class TriangleError < StandardError
