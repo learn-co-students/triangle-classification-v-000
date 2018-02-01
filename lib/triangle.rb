@@ -9,21 +9,12 @@ class Triangle
   end
 
   def kind
-    if (a == "0" || b == "0" || c == "0")
-      raise TriangleError
-    elsif ((a + b <= c) || (a + c <= b) || (b + c <= a))
-      raise TriangleError
-    else
-      if (a == b) & (a == c)
-        :equilateral
-      elsif ((a == b) && (a != c) && (b != c)) || ((b == c) && (b != a) && (c != a)) || (a == c)
-        :isosceles
-      else 
-        :scalene
-      end
-    end
-  end
-
+  raise TriangleError if a == 0 || b == 0 || c == 0
+  raise TriangleError if a+b<=c or b+c<=a or a+c<=b
+  return :equilateral if a == c and a == b
+  return :isosceles if a == b or b == c or a == c
+  :scalene
+end
 end
 
 class TriangleError < StandardError
