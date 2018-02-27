@@ -15,6 +15,10 @@ class Triangle
       if self.side_two <= 0 || self.side_one <= 0 || self.side_three <= 0
           raise TriangleError
 
+      elsif self.side_one + self.side_two <= self.side_three || self.side_one + self.side_three <= self.side_two || self.side_three + self.side_two <= self.side_one
+          raise TriangleError
+
+
       elsif self.side_two == self.side_one && self.side_three == self.side_one && self.side_two == self.side_three
           #binding.pry
            :equilateral
