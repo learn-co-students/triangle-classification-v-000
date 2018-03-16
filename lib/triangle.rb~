@@ -1,6 +1,9 @@
 # hint: each side must be larger than 0 & two sides added together are always > then the 3rd side
 
 class TriangleError < StandardError
+	def message
+	 'The sum of the lengths of any two sides of a triangle always exceeds the length of the third side. Please change your input values'
+	end
 end
 
 class Triangle
