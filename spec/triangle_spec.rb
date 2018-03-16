@@ -60,4 +60,12 @@ describe 'Triangle' do
     expect{Triangle.new(7, 3, 2).kind}.to raise_error(TriangleError)
   end
 
+  describe '#not_valid?' do
+    it 'knows that the sum of two sides must always be greater than the third side' do
+      expect(Triangle.new(7,3,2).not_valid?).to eq(true)
+      expect(Triangle.new(2,4,2).not_valid?).to eq(true)
+      expect(Triangle.new(1,1,3).not_valid?).to eq(true)
+    end
+  end
+
 end
