@@ -3,14 +3,16 @@ class Triangle
     @shape = [side1, side2, side3]
   end
 
-  def kind
-    # validate each side of the triangle or raise error
+  def validate
     @shape.each do |side|
       if side <= 0 || @shape.reduce(0, :+) <= side * 2
         raise TriangleError
       end
     end
-    # get back on topic, what kind am i?
+  end
+
+  def kind
+    validate
     case @shape.uniq.length
     when 1
       :equilateral
