@@ -11,7 +11,7 @@ class Triangle
 
   def kind
     validate
-    result = :equilateral if @shape.uniq.length == 1
+    return :equilateral if @shape.uniq.length == 1
     result = :isosceles if @shape.uniq.length == 2
     result = :scalene if @shape.uniq.length == 3
     result
