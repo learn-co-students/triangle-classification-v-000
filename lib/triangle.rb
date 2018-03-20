@@ -5,22 +5,16 @@ class Triangle
 
   def validate
     @shape.each do |side|
-      if side <= 0 || @shape.reduce(0, :+) <= side * 2
-        raise TriangleError
-      end
+      raise TriangleError if side <= 0 || @shape.reduce(0, :+) <= side * 2
     end
   end
 
   def kind
     validate
-    case @shape.uniq.length
-    when 1
-      :equilateral
-    when 2
-      :isosceles
-    when 3
-      :scalene
-    end
+    result = :equilateral if @shape.uniq.length == 1
+    result = :isosceles if @shape.uniq.length == 2
+    result = :scalene if @shape.uniq.length == 3
+    result
   end
 end
 
