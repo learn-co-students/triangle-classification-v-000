@@ -4,7 +4,6 @@ class Triangle
   attr_reader :x, :y, :z
 
   def initialize(x, y, z)
-        binding.pry
     @x = x
     @y = y
     @z = z
@@ -26,6 +25,7 @@ class Triangle
 
 
   def kind
+    binding.pry
     if valid?
       triangulator(@x, @y, @z)
     else
