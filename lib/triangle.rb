@@ -10,7 +10,7 @@ class Triangle
   end
 
   def valid?
-    (@x > 0 && @y > 0 && @z > 0) && (@x + @y > @z) && (@y + @z > @x)
+    (@x > 0 && @y > 0 && @z > 0) && (@x + @y > @z) && (@y + @z > @x) && (@x + @z > @y)
   end
 
   def triangulator(x, y, z)
@@ -25,15 +25,16 @@ class Triangle
 
 
   def kind
-    binding.pry
+    # binding.pry
     if valid?
       triangulator(@x, @y, @z)
     else
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        error.message
-      end
+      raise TriangleError
+      # begin
+      #   raise TriangleError
+      # rescue TriangleError => error
+      #   error.message
+      # end
     end
   end
 end
