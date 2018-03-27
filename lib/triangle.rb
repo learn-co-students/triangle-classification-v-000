@@ -10,10 +10,9 @@ attr_accessor :s1, :s2, :s3, :kind
 
 	def kind
 	if (s1 * s2 * s3) == 0 || (s1 + s2) <= s3 || (s2 +  s3) <= s1 || (s3 + s1) <= s2
-	# validate_triangle
+	validate_triangle
 		begin
 			raise TriangleError
-				# puts error.message
 		end
 
 		# begin
@@ -33,12 +32,12 @@ attr_accessor :s1, :s2, :s3, :kind
 		end
 	end
 
-	# def validate_triangle
-  #   real_triangle = [(s1 + s2 > s3), (s1 + s3 > s2), (s2 + s3 > s1)]
-  #   [s1, s2, s3].each { |s| real_triangle << false if s <= 0 }
+	def validate_triangle
+    real_triangle = [(s1 + s2 > s3), (s1 + s3 > s2), (s2 + s3 > s1)]
+    [s1, s2, s3].each { |s| real_triangle << false if s <= 0 }
 		
-	# 	raise TriangleError if real_triangle.include?(false)
-  # end
+		raise TriangleError if real_triangle.include?(false)
+  end
 end
 
 
