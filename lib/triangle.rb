@@ -15,11 +15,12 @@ class Triangle
   end
 
   def kind
-    if self.invalid?
-      begin
-        raise TriangleError
-      end
-    elsif sides.uniq.size == 1
+    # if self.invalid?
+      # begin
+      raise TriangleError if self.invalid?
+      # # rescue
+      # end
+    if sides.uniq.size == 1
       :equilateral
     elsif sides.uniq.size == 2
       :isosceles
@@ -28,14 +29,15 @@ class Triangle
     end
   end
 
+  class TriangleError < StandardError
+    # def message
+    #   "Each side must be greater than 0. The sum of each two sides must be greater than the third."
+    # end
+  end
+
 end
 
-class TriangleError < StandardError
-  def message
-    "Each side must be greater than 0. The sum of each two sides must be greater than the third."
-  end
-end
-#
-triangle = Triangle.new(0, 0, 0)
-triangle.invalid?
-triangle.kind
+
+# triangle = Triangle.new(0, 0, 0)
+# triangle.invalid?
+# triangle.kind
