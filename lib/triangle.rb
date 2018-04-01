@@ -28,12 +28,12 @@ class Triangle
     end
   end
 
-  class TriangleError < StandardError
-    def message
-      "Each side must be greater than 0. The sum of each two sides must be greater than the third."
-    end
-  end
+end
 
+class TriangleError < StandardError
+  def message
+    "Each side must be greater than 0. The sum of each two sides must be greater than the third."
+  end
 end
 #
 triangle = Triangle.new(0, 0, 0)
