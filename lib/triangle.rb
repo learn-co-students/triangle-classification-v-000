@@ -1,6 +1,6 @@
 require 'pry'
 class Triangle
-  attr_accessor
+  attr_accessor :kind
 
   def initialize(a,b,c)
     @a = a
@@ -9,18 +9,18 @@ class Triangle
   end
 
   def kind
-    if (@a + @b <= @c) || (@a + @c <= @b) || (@c + @b <= @a) || @a = 0 || @b = 0 || @c = 0
+    if (@a + @b <= @c) || (@a + @c <= @b) || (@c + @b <= @a) || @a == 0 || @b == 0 || @c == 0
       # binding.pry
-      # begin
-      #   raise TriangleError
-      #   puts error.message
-      # end
-      puts "not a triangle"
+      begin
+        raise TriangleError
+        puts error.message
+      end
+      # puts "not a triangle"
     else
-      if (a == b) && (b == c)
+      if (@a == @b) && (@b == @c)
         # binding.pry
           self.kind = :equilateral
-      elsif (a == b) || (b == c) || (c == a)
+      elsif (@a == @b) || (@b == @c) || (@c == @a)
         self.kind =  :isosceles
       else
         self.kind =  :scalene
