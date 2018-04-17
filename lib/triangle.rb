@@ -9,8 +9,8 @@ class Triangle
 
   def is_valid
     valid_triangle = [(length_1 + length_2 > length_3), (length_1 + length_3 > length_2), (length_2 + length_3 > length_1)]
-        [length_1, length_2, length_3].each { |length| valid_triangle << false if length <= 0 }
-        raise TriangleError if valid_triangle.include?(false)
+    [length_1, length_2, length_3].each { |length| valid_triangle << false if length <= 0 }
+    raise TriangleError if valid_triangle.include?(false)
   end
 
   def kind
