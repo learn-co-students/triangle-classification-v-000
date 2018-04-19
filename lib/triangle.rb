@@ -9,7 +9,7 @@ class Triangle
   end
   
   def kind 
-    if a+b <= c || a+c <= b || b+c <= a || a <= 0 || b <= 0 || c <= 0
+    if a+b <= c || a+c <= b || b+c <= a || a*b*c == 0
       begin
         raise TriangleError
       end
@@ -23,6 +23,5 @@ class Triangle
   end
   
   class TriangleError < StandardError
-   
   end
 end
