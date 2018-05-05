@@ -11,7 +11,6 @@ class Triangle
     if (side_A*side_B*side_C) == 0 || (side_A + side_B) <= side_C || (side_B + side_C) <= side_A || (side_C + side_A) <= side_B 
       begin
       raise TriangleError
-        puts error.message
       end
     elsif side_A == side_B && side_A == side_C
       self.kind = :equilateral
@@ -23,8 +22,5 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    def message
-      puts "This is not a triangle"
-    end
   end
 end
