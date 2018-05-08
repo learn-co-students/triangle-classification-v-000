@@ -1,30 +1,37 @@
+
 class Triangle
   attr_accessor :side1, :side2, :side3
+ 
   def initialize(side1,side2,side3)
-    @side1 = side1
-    @side2 = side2
-    @side3 = side3
+    @a = side1
+    @b = side2
+    @c = side3
   end 
+  
+   def validate_triangle
+    real_triangle = [(@a + @b > @c), (@a + @c > @b), (@b + @c > @a)]
+    [@a, @b, @c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
+  end
+
   
   def kind 
-    if (@side1 == @side2 && @side1 == @side3) && @side1 != 0
+     
+    self.validate_triangle
+    
+    if (@a == @b && @a == @c) 
       :equilateral
-    elsif @side1 == @side2 || @side1 == @side3 || @side2 == @side3
+    elsif (@a == @b || @a == @c || @b == @c) 
       :isosceles
-    elsif (@side1 != @side2 && @side1 != @side3 && @side2 != @side3
+    elsif (@a != @b && @a != @c && @b != @c) 
       :scalene
-    else 
-        begin
-        raise TriangleError
-      rescue TriangleError => error
-          puts error.message
-      end
-    end 
+    end
+     
   end 
   
-  class TriangleError < StnadardError 
+  class TriangleError < StandardError 
       def message 
       "Invalid Side Length"
-    end
+      end
   end 
 end
