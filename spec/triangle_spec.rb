@@ -3,7 +3,8 @@ describe 'Triangle' do
   it 'knows that equilateral triangles have equal sides' do
     expect(Triangle.new(2, 2, 2).kind).to eq(:equilateral)
   end
-
+  # 2 not a_side:2
+#you can call multiple methods in a chain
   it 'knows that larger equilateral triangles also have equal sides' do
     expect(Triangle.new(10, 10, 10).kind).to eq(:equilateral)
   end
