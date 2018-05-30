@@ -10,10 +10,24 @@ class Triangle
   end
   
   def kind
-    # types = :equilateral, :isosceles, :scalene
+    
+    # something for less than or equal to zero
+    
+    if side1 == side2 && side1 == side3
+      # all sides equal
+      :equilateral
+    elsif side1 == side2 || side1 == side3 || side2 == side3
+      # two sides equal
+      :isosceles
+    else
+      # no equal sides
+      :scalene
+    end
   end
   
   class TriangleError < StandardError
-    
+    def message 
+      "you must give the get_married method an argument of an instance of the person class!"
+    end
   end
 end
