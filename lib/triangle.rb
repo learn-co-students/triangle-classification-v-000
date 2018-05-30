@@ -27,7 +27,7 @@ class Triangle
   
   class TriangleError < StandardError
     def message 
-      "you must give the get_married method an argument of an instance of the person class!"
+      "Invalid triangle: remember that side lengths have to be higher than zero, and the sum of any two sides cannot exceed the third"
     end
   end
 end
