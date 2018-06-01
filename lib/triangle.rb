@@ -12,14 +12,14 @@ class Triangle
   end
 
   def kind
-    triangle?
+    raise TriangleError if !triangle?
     sides_enum
-    if equilateral?
+    if scalene?
+      :scalene
+    elsif equilateral?
       :equilateral
     elsif isosceles?
       :isosceles
-    else
-      :scalene
     end
   end
 
@@ -35,26 +35,18 @@ class Triangle
 
   def equilateral?
     @sides_enum.count >= 3
-    # @side1 == @side2 && @side1 == @side3 && @side2 == @side3
   end
 
   def isosceles?
-    @sides_enum.count < 3
+    @sides_enum.count.between?(0,2)
+  end
+
+  def scalene?
+    @sides_enum.count == 0
   end
 
   def triangle?
-    case
-    when (@s1 + @s2 > @s3) || (@s3 + @s2 > @s1) || (@s1 + @s3 > @s2)
-      true
-    when @sides.all? {|s| s > 0}
-      true
-    else
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
-      end
-    end
+    @sides.all? {|s| s > 0 } && (@s1 + @s2 > @s3) && (@s3 + @s2 > @s1) && (@s1 + @s3 > @s2)
   end
 
   class TriangleError < StandardError
