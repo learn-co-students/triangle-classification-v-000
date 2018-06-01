@@ -23,6 +23,14 @@ class Triangle
     end
   end
 
+  def triangle?
+    @sides.all? {|s| s > 0 } && longer_hypotenuse?
+  end
+
+  def longer_hypotenuse?
+    (@s1 + @s2 > @s3) && (@s3 + @s2 > @s1) && (@s1 + @s3 > @s2)
+  end
+
   def sides_enum
     @sides.each_with_index do |s, i|
       if s == @sides[i+1] || s == @sides[i-1]
@@ -43,10 +51,6 @@ class Triangle
 
   def scalene?
     @sides_enum.count == 0
-  end
-
-  def triangle?
-    @sides.all? {|s| s > 0 } && (@s1 + @s2 > @s3) && (@s3 + @s2 > @s1) && (@s1 + @s3 > @s2)
   end
 
   class TriangleError < StandardError
