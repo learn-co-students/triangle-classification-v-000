@@ -21,8 +21,8 @@ class Triangle
 
   def real_triangle
     real_triangle = [(@one + @two > @three), (@one + @three > @two), (@two + @three > @one)]
-    [@one, @two, @three].each {|side| real_triangle << 'fake' if side <= 0}
-    raise TriangleError if real_triangle.include?('fake')
+    [@one, @two, @three].each {|side| real_triangle << false if side <= 0}
+    raise TriangleError if real_triangle.include?(false)
   end
 
   class TriangleError < StandardError
