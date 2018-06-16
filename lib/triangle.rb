@@ -2,17 +2,17 @@ class Triangle
   attr_accessor
 
 
-  def initialize(side_one, side_two, side_three)
-    @side_one = side_one
-    @side_two = side_two
-    @side_three = side_three
+  def initialize(one, two, three)
+    @one = one
+    @two = two
+    @three = three
   end
 
   def kind
     real_triangle
-    if @side_one == @side_two && @side_one == @side_three
+    if @one == @two && @one == @three
       return :equilateral
-    elsif @side_one == @side_two || @side_one == @side_three || @side_two == @side_three
+    elsif @one == @two || @one == @three || @two == @three
       return :isosceles
     else
       return :scalene
@@ -20,8 +20,8 @@ class Triangle
   end
 
   def real_triangle
-    real_triangle = [(@side_one + @side_two > @side_three), (@side_one + @side_three > @side_two), (@side_two + @side_three > @side_one)]
-    [@side_one, @side_two, @side_three].each {|side| real_triangle << false if side <= 0}
+    real_triangle = [(@one + @two > @three), (@one + @three > @two), (@two + @three > @one)]
+    [@one, @two, @three].each {|side| real_triangle << false if side <= 0}
     raise TriangleError if real_triangle.include?(false)
   end
 
