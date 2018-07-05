@@ -9,7 +9,7 @@ class Triangle
 
   def valid_triangle? 
   	triangle = [@side1, @side2, @side3] 
-  	triangle.all? { |side| side > 0 } #|| !triangle.any? { |side| side <  } need to add triangle inequality check in a functional way 
+  	triangle.all? { |side| side > 0 } && (@side1 + @side2 > @side3 && @side1 + @side3 > @side2 && @side2 + @side3 > @side1)  
   end 
 
   def kind  
