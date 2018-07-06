@@ -17,14 +17,18 @@ class Triangle
           #errorhandler
 
       end
-
-      if (@a == @b &&  @b == @c)
-        return :equilateral
-      elsif (@a == @b || @b == @c || @a == @c)
-            return :isosceles
-      else
-            return   :scalene
-      end
+       if (@a+@b<=@c || @a+@c<=@b || @b+@c<=@a)
+         begin
+              raise TriangleError
+         end
+       end
+            if (@a == @b &&  @b == @c)
+              return :equilateral
+            elsif (@a == @b || @b == @c || @a == @c)
+                  return :isosceles
+            else
+                  return   :scalene
+            end
 
     end
 
