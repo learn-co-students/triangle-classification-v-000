@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :a, :b, :c
+  attr_reader :a, :b, :c
 
   def initialize(a, b, c)
     @a = a
@@ -8,12 +8,24 @@ class Triangle
   end
 
   def kind
-    if (@a == @b && @a == @c) && (@b == @a && @b == @c) && (@c == @a && @c == @b)
+    true_triangle
+    if a == b && b == c
       :equilateral
-    elsif (@a != @b) && (@b == @c) || (@a == @c) && (@c != @b) || (@a == @b) && (@b != @c)
+    elsif  a == b || b == c || a == c
       :isosceles
-    elsif (@a != @b) && (@b != @c)
+    else
       :scalene
     end
+  end
+
+  def true_triangle
+    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
+    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    raise TriangleError if real_triangle.include?(false)
+  end
+
+
+  class TriangleError < StandardError
+
   end
 end
