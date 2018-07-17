@@ -47,6 +47,6 @@ class Triangle
   end
 
   class TriangleError < StandardError
-
+    puts "Invalid Triangle Parameters"
   end
 end
