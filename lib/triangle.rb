@@ -15,16 +15,21 @@ class Triangle
       :isosceles
     elsif @side1 != @side2 && @side1 != @side3 && @side2 !=@side3
       :scalene
+    else
+      nil
     end
   end
 
   def triangle?
-    (@side1 > 0 && @side2 > 0 && @side3 > 0) && (((@side1 + @side2) > @side3) || ((@side1 + @side3) > @side2) || ((@side2 + @side3) > @side1)))
+    (@side1 > 0 && @side2 > 0 && @side3 > 0) && (((@side1 + @side2) > @side3) && ((@side1 + @side3) > @side2) && ((@side2 + @side3) > @side1))
   end
 
   def kind
-
-    type
+    if type && triangle?
+      type
+    else
+      raise TriangleError
+    end
   end
 
 
