@@ -11,11 +11,11 @@ class Triangle
   def kind
     if valid? == false
         raise TriangleError
-    elsif self.a == self.b && self.a == self.c && self.b == self.c
+    elsif a == b && b == c
       :equilateral
-    elsif self.a == self.b || self.a == self.c || self.b == self.c
+    elsif a == b || b == c || a == c
       :isosceles
-    elsif self.a != self.b && self.a != self.c && self.b != self.c
+    else
       :scalene
     end
   end
