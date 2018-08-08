@@ -33,9 +33,9 @@ class Triangle
   end
 
   class TriangleError < StandardError
-    def message
-      puts "you've got an invalid triangle there, yo!"
-    end
+    # def message
+    #   puts "you've got an invalid triangle there, yo!"
+    # end
   end
 
 end
