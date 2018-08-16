@@ -1,0 +1,33 @@
+
+[1mFrom:[0m /home/Acova003/triangle-classification-v-000/lib/triangle.rb @ line 18 Triangle#kind:
+
+    [1;34m12[0m: [32mdef[0m [1;34mkind[0m
+    [1;34m13[0m:   [1;34m#triangle rules[0m
+    [1;34m14[0m:   [1;34m#one side + 2nd side is bigger than the third side [0m
+    [1;34m15[0m:   [1;34m#one side does not equal 0[0m
+    [1;34m16[0m:   sorted = [s1,s2,s3].sort
+    [1;34m17[0m:   greatest_side = sorted.pop
+ => [1;34m18[0m:   binding.pry
+    [1;34m19[0m:   [32mif[0m 
+    [1;34m20[0m:     greatest_side > sorted.reduce([33m:+[0m) || sorted.include?([1;34m0[0m)
+    [1;34m21[0m:     [32mbegin[0m 
+    [1;34m22[0m:       raise [1;34;4mTriangleError[0m
+    [1;34m23[0m:         puts error.message 
+    [1;34m24[0m:         [32mend[0m
+    [1;34m25[0m:   [32melsif[0m 
+    [1;34m26[0m:     sorted.uniq.size == [1;34m1[0m
+    [1;34m27[0m:       [1;36mself[0m.kind = [33m:equilateral[0m
+    [1;34m28[0m:   [32melsif[0m 
+    [1;34m29[0m:     sorted.uniq.size == [1;34m2[0m
+    [1;34m30[0m:       [1;36mself[0m.kind = [33m:isosceles[0m
+    [1;34m31[0m:   [32melse[0m 
+    [1;34m32[0m:       [1;36mself[0m.kind = [33m:scalene[0m
+    [1;34m33[0m: 
+    [1;34m34[0m:   [32mend[0m 
+    [1;34m35[0m:   
+    [1;34m36[0m:   [1;34m#equilateral[0m
+    [1;34m37[0m:   [1;34m#isosceles [0m
+    [1;34m38[0m:   [1;34m#scalene [0m
+    [1;34m39[0m: 
+    [1;34m40[0m: [32mend[0m 
+
