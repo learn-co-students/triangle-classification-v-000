@@ -10,20 +10,21 @@ class Triangle
   end
 
   def kind
-    if length1 == 0 && length2 == 0 && length3 == 0
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-      end
-    elsif length1 == length2 && length2 == length3
-      :equilateral
-    elsif length2 == length3 || length1 == length3 || length1 == length2
-      :isosceles
+    if @length1 <= 0 || @length2 <= 0 || length3 <= 0
+      raise TriangleError
+    elsif @length1 + @length2 <= @length3 || @length1 + @length3 <= @length2 || @length2 + @length3 <= @length1
+      raise TriangleError
     else
-      :scalene
+      if length1 == length2 && length2 == length3
+        :equilateral
+      elsif length2 == length3 || length1 == length3 || length1 == length2
+        :isosceles
+      elsif @length1 != @length2 && @length2 != @length3 && @length1 != @length3
+        :scalene
+      end
     end
   end
+end
 
-  class TriangleError < StandardError
-  end
+class TriangleError < StandardError
 end
