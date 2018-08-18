@@ -10,7 +10,12 @@ class Triangle
   end
 
   def kind
-    if length1 == length2 && length2 == length3
+    if length1 == 0 && length2 == 0 && length3 == 0
+      begin
+        raise TriangleError
+      rescue TriangleError => error
+      end
+    elsif length1 == length2 && length2 == length3
       :equilateral
     elsif length2 == length3 || length1 == length3 || length1 == length2
       :isosceles
@@ -19,5 +24,6 @@ class Triangle
     end
   end
 
-  def valid?
+  class TriangleError < StandardError
+  end
 end
