@@ -9,6 +9,9 @@ class Triangle
     @s3 = s3
   end
 
+  class TriangleError < StandardError
+  end
+
   def kind
     if s1 == s2 && s1 == s3
       :equilateral
@@ -21,9 +24,10 @@ class Triangle
     end
   end
 
-  binding.pry
 
-  class TriangleError < StandardError
-  end
+
+  # binding.pry
 
 end
+
+# Stop pry
