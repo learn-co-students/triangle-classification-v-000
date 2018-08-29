@@ -24,10 +24,6 @@ class Triangle
     end
   end
 
-
-
-  # binding.pry
-
 end
 
 # Stop pry
