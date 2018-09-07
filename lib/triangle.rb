@@ -7,17 +7,18 @@ class Triangle
     @side3 = side3
   end
   def kind
-    sides = [side1, side2, side3]
-    if sides.all? {|side| sides[0] == side}
-      :equilateral
-    elsif sides.any? {|side| sides[0] == side} && !sides.all? {|side| sides[0] != side} 
-      :isosceles
-    elsif sides.all? {|side| sides[0] != side}
-      :scalene
-    else
+    sides = [side1, side2, side3].sort
+    if sides.first <= 0 || sides[2] >= sides[1] + sides[0]
       raise TriangleError
+    elsif [side1, side2, side3].uniq.size == 1
+      :equilateral
+    elsif [side1, side2, side3].uniq.size == 2
+      :isosceles
+    else
+      :scalene
     end
   end
+
 
 # Custom Errors
   class TriangleError < StandardError
