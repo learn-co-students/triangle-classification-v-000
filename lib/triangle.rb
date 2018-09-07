@@ -10,7 +10,7 @@ class Triangle
     sides = [side1, side2, side3]
     if sides.all? {|side| sides[0] == side}
       :equilateral
-    elsif sides.any? {|side| sides[0] == side} && sides.all? {|side| sides[0] != side} == false
+    elsif sides.any? {|side| sides[0] == side} && !sides.all? {|side| sides[0] != side} 
       :isosceles
     elsif sides.all? {|side| sides[0] != side}
       :scalene
