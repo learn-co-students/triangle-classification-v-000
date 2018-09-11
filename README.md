@@ -6,7 +6,7 @@
 
 ## Instructions
 
-* Write a `Triangle` class that accepts three arguments on initialization. Each argument is a length of one of the three sides of the triangle. 
+* Write a `Triangle` class that accepts three arguments on initialization. Each argument is a length of one of the three sides of the triangle.
 
 * Give your Triangles an instance method, `kind` that returns, as a symbol, its type. The valid types are:
 
@@ -36,7 +36,7 @@ The sum of the lengths of any two sides of a triangle always exceeds the length 
 
 Further, each side must be larger than 0.
 
-## Resources 
+## Resources
 
 * [Exception Handling](http://www.skorks.com/2009/09/ruby-exceptions-and-exception-handling/)
 * [Basic Mathematics](http://www.basic-mathematics.com/) - [Types of Triangles](http://www.basic-mathematics.com/types-of-triangles.html)
