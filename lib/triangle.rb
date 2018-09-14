@@ -1,9 +1,19 @@
+require 'pry'
+
+class TriangleError < StandardError
+
+  def message
+   "this is not a valid triangle"
+  end
+
+end
+
 class Triangle
 
   def initialize(length1, length2, length3)
-    Triangle.new(length1, length2, length3)
+    # Triangle.new(length1, length2, length3)
     @length1 = length1
-    @lenght2 = length2
+    @length2 = length2
     @length3 = length3
   end
 
@@ -11,27 +21,23 @@ class Triangle
     @length1 + @length2 > @length3
     @length1 + @length3 > @length2
     @length2 + @length3 > @length1
+    @length1 == 0 || @length2 == 0 || @length3 == 0
   end
 
   def kind
-    if self.valid? != true
-      begin
-       raise TriangleError
-      rescue TriangleError => error
-       puts error.message
-      else
-        "no issues with this triangle"
-    end
-  end
 
-  class TriangleError < StandardError
-
-    def message
-     "this is not a valid triangle"
+    if @length1 == @length2 && @length1 == @length3
+      :equilateral
+    elsif
+      @length1 == @length2 && @length1 != @length3 || @length2 == @length3 && @length2 != @length1 || @length3 == @length1 && @length3 != @length2
+      :isosceles
+    elsif
+      @length1 != @length3 && @length3 != @length2
+      :scalene
+    # elsif self.valid? != true
+    #   TriangleError
     end
 
   end
-
-
 
 end
