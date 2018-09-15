@@ -8,7 +8,7 @@ class Triangle
   
   def kind 
     if invalid_triangle? 
-      raise TriangleError
+      raise TriangleError, "It is impossible to make a triangle with these three sides."
     elsif equilateral?
       :equilateral
     elsif isosceles?
@@ -34,6 +34,5 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    "It is impossible to make a triangle with these three side lengths."
   end
 end
