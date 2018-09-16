@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :type :length_1, :length_2, :length_3
+  attr_accessor :type, :length_1, :length_2, :length_3
 
   def initialize(length_1, length_2, length_3)
     @length_1 = length_1
@@ -20,8 +20,8 @@ class Triangle
   end
 
   def validate_triangle
-    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
-    [a, b, c].each { |s| real_triangle << false if s <= 0 }
+    real_triangle = [(length_1 + length_2 > length_3), (length_1 + length_3 > length_2), (length_2 + length_3 > length_1)]
+    [length_1, length_2, length_3].each { |s| real_triangle << false if s <= 0 }
     raise TriangleError if real_triangle.include?(false)
   end
 end
