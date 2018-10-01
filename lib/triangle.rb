@@ -18,7 +18,7 @@ def kind
     else 
       raise TriangleError 
     end 
-     if x == y && y == z && x == z
+     if x == y && y == z 
       :equilateral
     elsif x != y && y != z && z != x
       :scalene 
