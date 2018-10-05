@@ -1,8 +1,7 @@
 class Triangle
-
+attr_reader :side1, :side2, :side3
   class TriangleError < StandardError
   end
-
   def initialize(side1, side2, side3)
     @triangles = []
     @triangles << side1
