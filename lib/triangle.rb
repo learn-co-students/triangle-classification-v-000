@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
 attr_reader :a, :b, :c
 
@@ -7,51 +8,36 @@ attr_reader :a, :b, :c
   @c = length_c
   end 
 
-  def equilateral
-    a == b &&  b == c &&  a == c 
-  end 
-
-  def isosceles
-    a == b && b == c && c !=  a
-  end 
-
-  def scalene
-    a != b && b != c && c != a
-  end 
- 
+  
   def kind 
     if a == b && b == c && a == c
       :equilateral
-     
     elsif a == b || b == c || c == a
       :isosceles
-      
-    else 
+    elsif  a != b && b != c && c != a
       :scalene
-      end
-    # else
-    #   raise TriangleError
-    # end 
+    else
+      [a,b,c].any?{ |x| length <= 0}
+     
+      raise TriangleError 
+    end 
   end 
 
   
-
-  def validate_triangle
-    true_triangle = [(a + b > c),  (a + c > b), (b + c > a)] 
-    
-    [a,b,c].each { |x| true_triangle << false if  x <= 0}
-      #if [a,b,c] > 0 && actual_triangle
-      #           true
-      # else    
+  # def validate_triangle
+  #   true_triangle = [(a + b > c),  (a + c > b), (b + c > a)] 
+  
+  #   #[a,b,c].each { |x| true_triangle << false if  x <= 0}
       
-      raise TriangleError if true_triangle.include? (false)
+  #     raise TriangleError if true_triangle.include? (false)
       
-    end       
+  #   end       
             
 # #TriangleError => error
- 
+ #validate_triangle
 
 class TriangleError < StandardError
+  
 end 
 
 end
