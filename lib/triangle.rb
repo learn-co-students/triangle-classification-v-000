@@ -10,31 +10,29 @@ attr_reader :a, :b, :c
 
   
   def kind 
-    
-    if  [a,b,c].any?{ |x| x <= 0}
-      raise TriangleError
-    end
-    if a == b && b == c && a == c
+    validate_triangle
+    # if  [a,b,c].any?{ |x| x <= 0}  
+    #   binding.pry
+    #   raise TriangleError
+    # end
+    if a == b && b == c
       :equilateral
     elsif a == b || b == c || c == a
       :isosceles
-    elsif  a != b && b != c && c != a
+    else 
       :scalene
     
     end 
   end 
-
-
+ 
   
   def validate_triangle
-    true_triangle = [(a + b > c),  (a + c > b), (b + c > a)] 
+     true_triangle = [(a + b > c),  (a + c > b), (b + c > a)] 
   
-    #[a,b,c].each { |x| true_triangle << false if  x <= 0}
+    [a,b,c].each { |x| true_triangle << false if  x <= 0}
       
-      raise TriangleError if true_triangle.include? (false)
-    end  
-    
-   
+       raise TriangleError if true_triangle.include?(false)
+     end  
 
 class TriangleError < StandardError
  
