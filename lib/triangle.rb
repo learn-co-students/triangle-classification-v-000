@@ -1,23 +1,25 @@
 class Triangle
   
-  attr_accessor :side1, :side2, :side3, :triangle_sides
+  attr_accessor :side1, :side2, :side3
   
   def initialize(side1, side2, side3)
-    @triangle_sides = []
-    @triangle_sides << @side1
-    @triangle_sides << @side2
-    @triangle_sides << @side3
-   
-  end 
+    @side1 = side1
+ 	  @side2 = side2
+    @side3 = side3
+  end
 
   def valid?
-    if triangle_sides[0] + triangle_sides[1] <= triangle_sides[2]
+    if @side1 + @side2 <= @side3
       false 
-    elsif triangle_sides[0] <= 0 
+    elsif  @side2 + @side3 <= @side1
       false 
-    elsif triangle_sides[1] <= 0
+     elsif  @side3 + @side1 <= @side2
+      false  
+    elsif @side1 <= 0 
       false 
-    elsif triangle_sides[2] <= 0
+    elsif @side2 <= 0
+      false 
+    elsif @side3 <= 0
       false  
     else 
       true  
@@ -28,9 +30,9 @@ class Triangle
   def kind
     if valid? != true 
       raise TriangleError
-    elsif triangle_sides.uniq.length == 1
+    elsif @side1 == @side2 && @side2 == @side3
         :equilateral
-    elsif triangle_sides.uniq.length == 2 
+    elsif @side1 == @side2 || @side2 == @side3 || @side3 == @side1  
         :isosceles 
     else 
       :scalene 
