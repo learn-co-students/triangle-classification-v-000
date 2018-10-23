@@ -28,13 +28,14 @@ class Triangle
       :scalene
     end
   end
+end
     
     class TriangleError < StandardError
       def message
           "Triangle Inequaliity occurs when the sum of the lengths of any two sides does not exceed the length of the third side and each side must be larger than 0"
      end
   end
-end
+
  
 
      
