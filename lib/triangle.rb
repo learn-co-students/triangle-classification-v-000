@@ -10,13 +10,12 @@ class Triangle
   end
 
   def illegal
-    allsides.any? { |s| s <= 0 } || (allsides.sort[0] + allsides.sort[1] <= allsides.sort[2])
+    raise TriangleError if allsides.any? { |s| s <= 0 } || (allsides.sort[0] + allsides.sort[1] <= allsides.sort[2])
   end
 
   def kind
-    if illegal
-      raise TriangleError
-    elsif side1 == side2 && side2 == side3
+    illegal
+    if side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side2 == side3 || side1 == side3
       :isosceles
