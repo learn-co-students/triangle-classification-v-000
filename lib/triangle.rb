@@ -7,23 +7,25 @@ class Triangle
   end
 
   def kind
-    validate_triangle
-    if a == b && b == c
-      :equilateral
-    elsif a == b || b == c || a == c
-      :isosceles
-    else
-      :scalene
-    end
+    triangle?
+      if a == b && b == c
+        :equilateral
+      elsif a == b || b == c || a == c
+        :isosceles
+      else
+        :scalene
+      end
   end
 
-  def validate_triangle
-    real_triangle = [(a + b > c), (a + c > b), (b + c > a)]
-    [a, b, c].each { |s| real_triangle << false if s <= 0 }
-    raise TriangleError if real_triangle.include?(false)
+def triangle?
+  if @a == 0 && @b == 0 && @c == 0 ||
+    @a < 0 || @b < 0 || @c < 0 ||
+    @a + @b <= @c || @a + @c <= @b || @c + @b <= @a
+    raise TriangleError
   end
+end
 
-  class TriangleError < StandardError
+class TriangleError < StandardError
+  puts "A Triangle cannot have 0 as a value for all sides"
   end
-  
 end
