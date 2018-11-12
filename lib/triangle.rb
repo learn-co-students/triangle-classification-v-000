@@ -1,3 +1,4 @@
+require 'pry'
 class Triangle
   attr_accessor :side1, :side2, :side3
   
@@ -7,8 +8,24 @@ class Triangle
     @side3 = side3
   end 
   
+  def valid?
+    if side1 <= 0 || side2 <= 0 || side3 <= 0
+      false
+    elsif side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1
+      false 
+    else
+      true
+    end
+  end 
+    
   def kind
-    if side1 == side2 && side2 == side3
+    if !valid?
+      begin
+        raise Triangle::TriangleError
+      rescue Triangle::TriangleError => error
+          puts error.message
+      end 
+    elsif side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side1 == side3 || side2 == side3
       :isosceles
@@ -18,10 +35,8 @@ class Triangle
   end
   
   class TriangleError < StandardError
-    if side1 <= 0 || side2 <= 0 || side3 <= 0
-      "invalid_message"
-    elsif side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1
-      "invalid_message"
+    def message
+      "This is not a valid triangle."
     end
   end
 end
