@@ -19,7 +19,7 @@ class Triangle
   end 
     
   def kind
-    if !valid?
+    if Triangle.valid? == false
       begin
         raise Triangle::TriangleError
       rescue Triangle::TriangleError => error
