@@ -9,13 +9,11 @@ class Triangle
   end
   
   def kind
+  sides = [side1, side2, side3]
+  sides.sort!
   # binding.pry
-    if side1 <= 0 || side2 <= 0 || side3 <= 0
-        begin
+    if side1 <= 0 || side2 <= 0 || side3 <= 0 || (sides[0]+sides[1]) <= sides[2]
           raise TriangleError
-          rescue TriangleError => error
-            puts error.message
-        end
     elsif side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side1 == side3 || side2 == side3
@@ -27,7 +25,7 @@ class Triangle
   end
 class TriangleError < StandardError
     def message 
-       "Your triangle is invalid."
+      puts "Your triangle is invalid."
      end
 end
 
