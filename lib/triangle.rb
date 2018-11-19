@@ -8,23 +8,28 @@ class Triangle
     @side3 = side3
   end
   
-  def kind(side1, side2, side3)
-    binding.pry
+  def kind
+   #binding.pry
     if side1 == side2 && side2 == side3
       :equilateral
     elsif side1 == side2 || side1 == side3 || side2 == side3
       :isosceles
     elsif (side1+side2) > side3 || (side1+side3) > side2 || (side2+side3) > side1
       :scalene
+    elsif side1 > 0 && side2 > 0 && side3 > 0
+      :other_triangle
     else
         begin
           raise TriangleError
           rescue TriangleError => error
+            puts error.message
         end
     end
   end
 class TriangleError < StandardError
-    puts "Your triangle doesn't make sense."
+    def message 
+       "Your triangle is invalid."
+     end
 end
 
 end 
