@@ -12,7 +12,7 @@ attr_accessor :sides, :s1, :s2, :s3, :equilateral, :isosceles, :scalene
   def kind
     
     if (sides[0] >= sides[1] + sides[2]) || (sides[1] >= sides[0] + sides[2]) || (sides[2] >= sides[1] + sides[0]) 
-    #if sides[0] <= 0   
+  
         raise TriangleError
     else
       if sides.uniq.count == 1
