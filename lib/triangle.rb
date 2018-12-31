@@ -11,26 +11,32 @@ class Triangle
   end
   
   def kind
-    triangle =[@sideone, @sidetwo, @sidethree]
+    triangle = [@sideone, @sidetwo, @sidethree]
     counts = Hash.new 0
     triangle.each { |length| 
     counts[length] += 1 }
     
-    if triangle.any? {|sidelength| sidelength == 0}
-      begin
-        raise TriangleError
-      rescue TriangleError => error
-        puts error.message
+    
+# binding.pry
+      if counts.value?(3) && countsValid(counts) 
+        :equilateral
+      elsif counts.value?(2) && countsValid(counts) 
+        :isosceles
+      elsif counts.value?(1) && countsValid(counts) 
+        :scalene
+      else
+        begin
+          raise TriangleError
+        rescue TriangleError => error
+          puts error.message
+        end
       end
-      elsif counts.value?(3)
-      :equilateral
-      elsif counts.value?(2)
-      :isosceles
-      elsif counts.value?(1)
-      :scalene
     end
 
-  end  
+  
+  def countsValid(hash)
+    hash.keys.all? {|side| side > 0}
+  end
   
   class TriangleError < StandardError
     def message
