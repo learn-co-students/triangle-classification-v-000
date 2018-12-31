@@ -12,30 +12,36 @@ class Triangle
   
   def kind
     triangle = [@sideone, @sidetwo, @sidethree]
-    counts = Hash.new 0
+    counts = Hash.new 0 #practice working with hashes
     triangle.each { |length| 
     counts[length] += 1 }
     
-    
-# binding.pry
-      if counts.value?(3) && countsValid(counts) 
-        :equilateral
-      elsif counts.value?(2) && countsValid(counts) 
-        :isosceles
-      elsif counts.value?(1) && countsValid(counts) 
-        :scalene
-      else
-        begin
-          raise TriangleError
-        rescue TriangleError => error
-          puts error.message
-        end
-      end
+    if violatesInequality(triangle)
+      raise TriangleError
     end
 
-  
+    if counts.value?(3) && countsValid(counts) 
+      :equilateral
+    elsif counts.value?(2) && countsValid(counts) 
+      :isosceles
+    elsif counts.value?(1) && countsValid(counts) 
+      :scalene
+    else
+        raise TriangleError
+    end
+    
+  end
+    
+  #violatesInequality tests if triangle violates triangle inequality principle
+  def violatesInequality(array)
+    array[0] + array[1] <= array[2] ||
+    array[2] + array[1] <= array[0] ||
+    array[0] + array[2] <= array[1]
+  end
+    
+  #countsValid confirms number of equal sides
   def countsValid(hash)
-    hash.keys.all? {|side| side > 0}
+    hash.keys.any? {|side| side <= 0} ? false : true
   end
   
   class TriangleError < StandardError
