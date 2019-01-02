@@ -18,10 +18,6 @@ class Triangle
     if sides_array.min <= 0 || min + mid <= max
       raise TriangleError
     end
-    
-    # if min + mid <= max
-    #   raise TriangleError
-    # end
   
     
     if sides_array.uniq.size <= 1
