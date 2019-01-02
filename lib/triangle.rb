@@ -17,33 +17,52 @@ class Triangle
 
 
   def kind
-    if s1 > 0 && s2 > 0 && s3 > 0
-      yield self.tri_inequal
-    else
-      raise TriangleError.not_tri_zero
+    if !(s1 > 0 && s2 > 0 && s3 > 0)
+      begin
+        raise TriangleError
+        rescue TriangleError => error
+        puts error.message1
+      end
+    elsif
+      s1 > 0 && s2 > 0 && s3 > 0
+        yield self.tri_inequal(s1,s2,s3)
     end
 
     # kind tests
     if s1 == s2 == s3
       :equilateral
-    else if
+    elsif s1 != s2 != s3
+      :scalene
+    else
       :isoceles
+    end
+  end # kind method
 
   def tri_inequal(s1, s2, s3)
-      test = []
-      test << (a[0] < a[1] + a[2])
-      test << (a[1] < a[0] + a[2])
-      test << (a[2] < a[1] + a[2])
-      if test.all?(true)
+    test = []
+    test << (a[0] < a[1] + a[2])
+    test << (a[1] < a[0] + a[2])
+    test << (a[2] < a[1] + a[2])
+    if test.all?(true)
+      self.kind
+    else
+      begin
+        raise TriangleError
+        rescue TriangleError => error
+        puts error.message2
+      end
+    end
+  end #tri_inequal method
 
-              end
-            end
+
   class TriangleError < StandardError
-    def not_tri_zero
+    def message1
       "Not a valid triangle: all lengths must be > 0"
     end
 
-    def not_tri_length
+    def message2
       "Not a valid triangle: sum of 2 lengths not > 3rd length"
     end
-end
+  end
+
+end # class Triangle end
