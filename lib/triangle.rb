@@ -9,42 +9,41 @@ class Triangle
     @s3 = s3.to_i
     @sides = [s1, s2, s3]
   end
-
   # kind method
-  compute 2 validity tests
-  if all side lengths > 0 valid test 1 == true
-    take samples of 2 from sides array, sum them and see if > other side
-  output kind of triangle
+#  compute 2 validity tests
+#  if all side lengths > 0 valid test 1 == true
+#    take samples of 2 from sides array, sum them and see if > other side
+#  output kind of triangle
+
 
   def kind
-    def tri_inequal()
-	     test = []
-	     test << (a[0] < a[1] + a[2])
-	     test << (a[1] < a[0] + a[2])
-	     test << (a[2] < a[1] + a[2])
-	     if test.all?(true)
-		           self.kind
-	            else
-		              raise TriangleError
-	               end
-               end
-    self.sum = @length1 + @length2 + @length3
-    #isoceles
+    if s1 > 0 && s2 > 0 && s3 > 0
+      yield self.tri_inequal
+    else
+      raise TriangleError.not_tri_zero
+    end
 
+    # kind tests
+    if s1 == s2 == s3
+      :equilateral
+    else if
+      :isoceles
 
-    # begin
-        if
-    #     raise TriangleError
-    #     rescue TriangleError => error
-    #     puts error.not_tri
-    # end
+  def tri_inequal(s1, s2, s3)
+      test = []
+      test << (a[0] < a[1] + a[2])
+      test << (a[1] < a[0] + a[2])
+      test << (a[2] < a[1] + a[2])
+      if test.all?(true)
 
+              end
+            end
   class TriangleError < StandardError
     def not_tri_zero
       "Not a valid triangle: all lengths must be > 0"
     end
 
     def not_tri_length
-      "Not a valid triangle: sum of 2 lengths always > 3rd length"
+      "Not a valid triangle: sum of 2 lengths not > 3rd length"
     end
 end
