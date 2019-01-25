@@ -1,5 +1,5 @@
 class Triangle
-  attr_accessor :side1, :side2, :side3, :equilateral, :isosceles, :scalene
+  attr_accessor :side1, :side2, :side3, :kind
    # write code here
    def initialize(side1, side2, side3)
      @side1 = side1
@@ -9,18 +9,28 @@ class Triangle
 
    def kind
       if (side1 == side2) && (side2 == side3) && (side1 == side3)
-        raise :equilateral
+        self.kind = :equilateral
 
-      elsif ()
-        raise :isosceles
+      elsif (side1 == side2) || (side2 == side3) || (side1 == side3)
+        self.kind = :isosceles
+
+      elsif (side1 != side2) && (side2 != side3) && (side1 != side3)
+        self.kind = :scalene
 
       else
-        raise :scalene
+        self.kind = :TriangleError
+      end
    end
 
+   def error
+      if (side1 < 0) || (side2 < 0) || (side3 < 0)
+        self.kind = :TriangleError
+      elsif (side1 + side2) <= side3 || (side1 + side3) <= side2 || (side2 + side3) <= side1
+        self.kind = :TriangleError
+      end
+   end
 
+   class TriangleError < StandardError
+   end
 
-
-  class TriangleError < StandardError
-  end
 end
