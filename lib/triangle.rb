@@ -2,21 +2,24 @@ class Triangle
   attr_accessor :side_1, :side_2, :side_3
 
   def initialize(side_1, side_2, side_3)
-    @side_1 = side_1
-    @side_2 = side_2
-    @side_3 = side_3
+    @all_sides = []
+    @all_sides << side_1
+    @all_sides << side_2
+    @all_sides << side_3
 
   end
 
   def kind
-    if @side_1 <= 0 || @side_2 <= 0 || @side_3 <=0
-      raise TriangleError
-    elsif @side_1 == @side_2 && @side_2 == @side_3
+    if @all_sides.uniq.count <= 1
       :equilateral
-    elsif @side_1 == @side_2 || @side_2 == @side_3 || @side_3 == @side_1
+    elsif @all_sides.uniq.count <= 2
       :isosceles
-    elsif @side_1 > 0.1 || @side_2  > 0.1 || @side_3 > 0.1
+    elsif @all_sides.map {|side| side > 0}
       :scalene
+    elsif @all_sides.none?
+      raise TriangleError
+    else
+      raise TriangleError
     end
   end
 
