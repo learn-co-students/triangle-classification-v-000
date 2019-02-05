@@ -16,9 +16,7 @@ class Triangle
       :isosceles
     elsif @all_sides.map {|side| side > 0}
       :scalene
-    elsif @all_sides.none?
-      raise TriangleError
-    else
+    elsif @all_sides.map {|side| side < 0}
       raise TriangleError
     end
   end
