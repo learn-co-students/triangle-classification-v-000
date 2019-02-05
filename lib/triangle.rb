@@ -10,13 +10,15 @@ class Triangle
   end
 
   def kind
-    if @all_sides.uniq.count <= 1
+    if @all_sides.detect {|side| side <= 0}
+      raise TriangleError
+    elsif @all_sides.uniq.count == 1
       :equilateral
-    elsif @all_sides.uniq.count <= 2
+    elsif @all_sides.uniq.count == 2
       :isosceles
     elsif @all_sides.map {|side| side > 0}
       :scalene
-    elsif @all_sides.map {|side| side < 0}
+    else
       raise TriangleError
     end
   end
