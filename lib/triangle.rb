@@ -16,7 +16,7 @@ class Triangle
       :equilateral
     elsif @all_sides.uniq.count == 2
       :isosceles
-    elsif @all_sides.map {|side| side > 0}
+    else
       :scalene
     end
   end
