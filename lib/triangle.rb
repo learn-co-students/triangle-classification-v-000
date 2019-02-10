@@ -1,34 +1,44 @@
 class Triangle
   
-  attr_accessor :side_one, :side_two, :side_three 
+  attr_accessor :side_one, :side_two, :side_three, :kind 
    
-  def initialize(side_one,side_two,side_three)
+  def initialize(side_one, side_two, side_three)
     @side_one = side_one
     @side_two = side_two
     @side_three = side_three 
-    
   end
   
   
   def kind 
-    # Triangle rules 
-    #The sum of the lengths of any two sides of a triangle always exceeds the length of the third side. 
-    #This is a principle known as the triangle inequality.
-    if (@side_one + @side_two) <= @side_three || (@side_two + @side_three) <= @side_one || (@side_three + @side_one) <= @side_two 
     
+    if (side_one * side_two * side_three) == 0 || (side_one + side_two) <= side_three || (side_two + side_three) <= side_one || (side_three + side_one) <= side_two 
+   
+      begin 
+        raise TriangleError
+        puts error.message 
+      end
     
-    #equilateral 
-    #isosceles
-    #scalene  
-  end 
+  elsif side_one == side_two && side_one == side_three 
+   self.kind = :equilateral 
+  
+  elsif side_one == side_two || side_one == side_three || side_two == side_three 
+   self.kind = :isosceles
+    
+     else 
+       self.kind = :scalene
+    end 
+ end 
+end 
   
   
 class TriangleError < StandardError
-    # triangle error code
+   def message 
+     puts "Not a triangle"
+
   end
+end 
+
   
   
   
-  
- 
-end
+
