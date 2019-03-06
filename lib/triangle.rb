@@ -8,15 +8,11 @@ class Triangle
   end
 
   def valid_triangle?
-    if @sides.any? { |side| side <= 0 }
+    if @sides.any? {|side| side <= 0}
         raise TriangleError
     elsif @sides[0] + @sides[1] <= @sides[2]
-          raise TriangleError
+        raise TriangleError
     end
-    #refactored rb:17-19 to include in combined if--elsif statement rb:11-15
-    #if @sides[0] + @sides[1] <= @sides[2]
-    #  raise TriangleError
-    #end
   end
 
   def kind
@@ -28,7 +24,6 @@ class Triangle
       else
         :scalene
       end
-
   end
 
   class TriangleError < StandardError
