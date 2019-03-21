@@ -5,12 +5,22 @@ class Triangle
   
   def initialize(triangle_sides = [a, b, c])
     @triangle_sides = triangle_sides.sort
+    
+    #each side must be > 0
+    is_each_side_greater_than_zero?
+    
     #if less than 3 sides entered, then raise TriangleError
     #NOT SURE HOW TO CODE THIS
     
       # raise TriangleError
     
   end
+
+  def is_each_side_greater_than_zero?
+    #write code here 
+    
+  end 
+  
 
   def kind(triangle_sides)
   
