@@ -1,40 +1,27 @@
+require 'pry'
+
 class Triangle
   attr_accessor :triangle_sides
   
-  @triangle_sides = []
+  @triangle_sides = [@a, @b, @c]
   
-  def initialize(triangle_sides = [a, b, c])
-    @triangle_sides = triangle_sides.sort
-    
-    #each side must be > 0
-    is_each_side_greater_than_zero?
-    
-    #if less than 3 sides entered, then raise TriangleError
-    #NOT SURE HOW TO CODE THIS
-    
-      # raise TriangleError
-    
+  def initialize(a, b, c)
+    @a = a 
+    @b = b 
+    @c = c 
   end
 
-  def is_each_side_greater_than_zero?
-    #write code here 
-    
-  end 
-  
 
-  def kind(triangle_sides)
-  
-      
-    if (( a == b ) && ( a == c ))
+  def kind
+    if @a<=0 || @b<=0 || @c<=0 || @a+@b <= @c || @a+@c <= @b || @b+@c <= @a
+      raise TriangleError 
+    elsif @a==@b && @b==@c 
       return :equilateral
-      
-      elsif (( a == c ) || ( b == c ))
-  	    return :isosceles
-        
-      else
-        return :scalene
+    elsif @a==@b || @b==@c || @a==@c
+      return :isosceles
+    elsif @a!=@b && @b!=@c && @a!=@c
+      return :scalene 
     end
-
   end
 
   # Error class used in part 2.  No need to change this code.
