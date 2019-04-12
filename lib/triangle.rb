@@ -1,8 +1,8 @@
 class Triangle
 
-attr_accessor :equilateral, :isosceles, :scalene
+attr_accessor :a, :b, :c
 
-def initialize(60, 34, 73)
+def initialize(a, b, c)
 
 def kind
 
