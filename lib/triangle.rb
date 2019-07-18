@@ -16,7 +16,7 @@ class Triangle
     end
   end
 
-  def kind
+  def kind()
     if self.valid_triange == false
       raise TriangleError
     elsif
