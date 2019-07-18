@@ -9,7 +9,7 @@ class Triangle
   end
 
   def valid_triange
-    if side_a + side_b <= side_c || side_a + side_c <= side_b || side_b + side_c <= side_a || side_a <= 0 || side_b <= 0 || side_c <= 0
+    if @side_a + @side_b <= @side_c || @side_a + @side_c <= @side_b || @side_b + @side_c <= @side_a || @side_a <= 0 || @side_b <= 0 || @side_c <= 0
       return false
     else
       return true
@@ -24,7 +24,7 @@ class Triangle
         :equilateral
       elsif @side_a == @side_b || @side_a == @side_c || @side_b == @side_c
         :isosceles
-      elseif
+      elsif
       @side_a != @side_b && @side_a != @side_c && @side_b != @side_c
       :scalene
     end
@@ -33,9 +33,5 @@ class Triangle
 class TriangleError < StandardError
 
 end
-
-
-
-
 
 end
