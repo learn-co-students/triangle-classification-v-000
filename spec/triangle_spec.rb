@@ -1,4 +1,3 @@
-require_relative '../lib/triangle'
 describe 'Triangle' do
 
   it 'knows that equilateral triangles have equal sides' do
