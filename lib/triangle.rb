@@ -1,19 +1,19 @@
 class Triangle
-  attr_accessor :l_1, :l_2, :l_3
+  attr_accessor :side_1, :side_2, :side_3
 
-  def initialize(l_1, l_2, l_3)
-    @l_1 = l_1
-    @l_2 = l_2
-    @l_3 = l_3
+  def initialize(side_1, side_2, side_3 )
+    @side_1 = side_1
+    @side_2 = side_2
+    @side_3 = side_3
   end
 
   def kind
-    if @l_1 + @l_2 > @l_3 && @l_1 + @l_3 > @l_2 && @l_2 + @l_3 > @l_1 && @l_1 > 0 && @l_2 > 0 && @l_3 > 0
-      if @l_1 == @l_2 && @l_2 == @l_3
-        :equilateral
-      elsif @l_1 == @l_2 || @l_2 == @l_3 || @l_1 == @l_3
-        :isosceles
-      else @l_1 != @l_2 && @l_2 != @l_3
+    if @side_1 + @side_2 > @side_3 && @side_1 + @side_3 > @side_2 && @side_2 + @side_3 > @side_1 && @side_1 > 0 && @side_2 > 0 && @side_3 > 0
+      if @side_1 == @side_2 && @side_2 == @side_3
+         :equilateral
+      elsif @side_1 == @side_2 || @side_1 == @side_3 || @side_2 == @side_3
+         :isosceles
+      else
         :scalene
       end
     else
@@ -22,6 +22,5 @@ class Triangle
   end
 
   class TriangleError < StandardError
-
   end
 end
