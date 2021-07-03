@@ -1,6 +1,5 @@
 require 'pry'
 class Triangle
-  attr_reader :side1, :side2, :side3
 
   def initialize(side1, side2, side3)
     @side1 = side1
@@ -9,23 +8,24 @@ class Triangle
   end
 
   def kind
-
-    if [@side1, @side2, @side3].any? { |side| side <= 0 }
+    a = @side1
+    b = @side2
+    c = @side3
+    if [a, b, c].any? {|s| s<=0 }
       raise TriangleError
     end
-    if @side1 + @side2 <= @side3 || @side2 + @side3 <= @side1 || @side1 + @side3 <= @side2
+    if a+b <= c || b + c <= a || a+c <= b
       raise TriangleError
     end
-
-    if [@side1, @side2, @side3].uniq.count == 1
+    if [a, b, c].uniq.count == 1
       :equilateral
-    elsif [@side1, @side2, @side3].uniq.count == 2
+    elsif [a, b, c].uniq.count == 2
       :isosceles
     else :scalene
     end
-
   end
 
   class TriangleError < StandardError
+    # triangle error code
   end
 end
