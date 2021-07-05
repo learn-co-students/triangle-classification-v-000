@@ -1,0 +1,28 @@
+
+[1mFrom:[0m /home/pcherian10/triangle-classification-v-000/lib/triangle.rb @ line 25 Triangle#kind:
+
+    [1;34m12[0m: [32mdef[0m [1;34mkind[0m
+    [1;34m13[0m:   result = []
+    [1;34m14[0m:   i = [1;34m0[0m
+    [1;34m15[0m:   [32mwhile[0m(i <= [1;34m1[0m)
+    [1;34m16[0m:     j = i + [1;34m1[0m
+    [1;34m17[0m:     [32mwhile[0m(j < @sides.length)
+    [1;34m18[0m:       result << (@sides[i] + @sides[j]) [1;34m#[(0,1), (0,2), (1,2)][0m
+    [1;34m19[0m:       j += [1;34m1[0m
+    [1;34m20[0m:     [32mend[0m
+    [1;34m21[0m:     i +=[1;34m1[0m
+    [1;34m22[0m:   [32mend[0m
+    [1;34m23[0m: 
+    [1;34m24[0m:   result = result.reverse [1;34m#[(1,2), (0,2), (0,1)][0m
+ => [1;34m25[0m:   binding.pry
+    [1;34m26[0m:   [32mif[0m (@sides.each.with_index {|side, idx| [32mreturn[0m [1;36mfalse[0m [32mif[0m side > result[idx].to_i}) || (@sides.any? {|side| side <= [1;34m0[0m}) [1;34m# invalid cases.[0m
+    [1;34m27[0m:     [32mbegin[0m
+    [1;34m28[0m:       raise [1;34;4mTriangleError[0m
+    [1;34m29[0m:     [32mend[0m
+    [1;34m30[0m:   [32melse[0m
+    [1;34m31[0m:     [33m:equilateral[0m [32mif[0m @sides.uniq.length == [1;34m1[0m
+    [1;34m32[0m:     [33m:isosceles[0m [32mif[0m @sides.uniq.length == [1;34m2[0m
+    [1;34m33[0m:     [33m:scalene[0m [32mif[0m @sides.uniq.length == [1;34m3[0m
+    [1;34m34[0m:   [32mend[0m
+    [1;34m35[0m: [32mend[0m
+
